@@ -1,0 +1,11 @@
+@media (min-width: 48em) {
+  .sidebar-sticky {
+   bottom: none;  /* Make sidebar stick to the top instead of the bottom. */
+  }
+}
+
+.site-avatar img { 
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50% 
+}

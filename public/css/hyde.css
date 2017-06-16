@@ -109,7 +109,7 @@ a.sidebar-nav-item:focus {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    bottom: 1rem;
+  /* bottom: 1rem; Make sidebar stick to the top instead of the bottom. */
     left:   1rem;
   }
 }
