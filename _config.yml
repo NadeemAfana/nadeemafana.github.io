@@ -18,7 +18,7 @@ title:            Nadeem Afana's Blog
 tagline:          Home
 description:      Senior Software Developer
 url:              http://afana.me
-baseurl:          /
+baseurl:          https://nadeemafana.github.io/
 
 author:
   name:           'Nadeem Afana'
