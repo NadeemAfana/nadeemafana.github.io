@@ -10,7 +10,10 @@
     -webkit-border-radius:50% 
 }
 
-body {
-  font-family: Georgia, "PT Sans", Helvetica, Arial, sans-serif;
+body {  
   color: #333;
+}
+
+body .post p {
+  font-family: Georgia, "PT Sans", Helvetica, Arial, sans-serif; 
 }
