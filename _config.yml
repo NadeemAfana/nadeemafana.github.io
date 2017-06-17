@@ -8,7 +8,7 @@ google_analytics: UA-18249804-1
 # Setup
 title:            Nadeem Afana's Blog
 tagline:          Home
-description:      Nadeem Afana
+name:             Nadeem Afana
 url:              https://nadeemafana.github.io
 baseurl:          
 

@@ -17,3 +17,13 @@ body {
 body .post p {
   font-family: Georgia, "PT Sans", Helvetica, Arial, sans-serif; 
 }
+
+.sidebar-about h1 a {
+ text-decoration: none;
+  transition: color 0.3s;
+   font-size: 0.5em;
+}
+
+.sidebar-about h1 img {
+  margin-bottom: -10%;
+}
