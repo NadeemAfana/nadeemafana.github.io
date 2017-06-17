@@ -2,7 +2,7 @@
 layout: post
 title: How MIT Keytab Files Store Passwords
 redirect_from:
-- "post/how-mit-keytab-files-store-passwords.aspx/"
+- "/post/how-mit-keytab-files-store-passwords.aspx/"
 tags:
 - kerberos
 - security
