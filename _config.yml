@@ -37,7 +37,7 @@ kramdown:
     # Use existing pygments syntax highlighting css
     css_class: 'highlight'
 
-permalink: /archive/:year/:month/:day/:title/
+permalink: archive/:year/:month/:day/:title/
 paginate: 5
 paginate_path: "page/:num"
 
