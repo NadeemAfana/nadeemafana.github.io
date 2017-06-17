@@ -9,3 +9,8 @@
     -moz-border-radius:50%;
     -webkit-border-radius:50% 
 }
+
+body {
+  font-family: Georgia, "PT Sans", Helvetica, Arial, sans-serif;
+  color: #333;
+}
