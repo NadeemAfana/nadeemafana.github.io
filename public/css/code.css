@@ -1,36 +1,47 @@
-/* C# Code. See http://www.manoli.net/csharpformat/format.aspx for more inforation. */
-.csharpcode, .csharpcode pre
-{
-	font-size: small;
-	color: black;
-	font-family: Consolas, "Courier New", Courier, Monospace;
-	background-color: #ffffff;
-	/*white-space: pre;*/
-}
+/* C# Code. See http://www.manoli.net/csharpformat/format.aspx */
 
-.csharpcode pre { margin: 0em; }
-
-.csharpcode .rem { color: #008000; }
-
-.csharpcode .kwrd { color: #0000ff; }
-
-.csharpcode .str { color: #006080; }
-
+.csharpcode .rem, .highlight .c1, .highlight .cs, .highlight .c, .highlight .cm, .highlight .nn { color: #008000; }
+.csharpcode .kwrd, .highlight .kt, .highlight .k, .highlight .kd { color: #0000ff; }
+.csharpcode .str, .highlight .s, .highlight .s1 { color: #a31515; }
 .csharpcode .op { color: #0000c0; }
-
 .csharpcode .preproc { color: #cc6633; }
-
 .csharpcode .asp { background-color: #ffff00; }
-
 .csharpcode .html { color: #800000; }
-
-.csharpcode .attr { color: #ff0000; }
-
+.csharpcode .attr, .highlight .na { color: #ff0000; }
 .csharpcode .alt 
 {
 	background-color: #f4f4f4;
 	width: 100%;
 	margin: 0em;
 }
-
 .csharpcode .lnum { color: #606060; }
+
+/*
+Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+*/
+
+
+pre code {
+  font-family: Consolas,Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+  display: block;
+  color: #000;
+  margin: 10px 0 8px 0;
+  padding: 5px 15px;
+  overflow-x: auto;
+  word-wrap: break-word;
+}
+
+.highlight .m { color: #009999 } /* Literal Number */
+.highlight .o, .highlight .p, .highlight .p-indicator, .highlight .nv { color: #666666 } /* Operator */
+
+/* Theme overrides */
+pre {
+	padding: unset;
+}
+
+code {
+	font-family: Consolas,Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+	color: #333;
+}
