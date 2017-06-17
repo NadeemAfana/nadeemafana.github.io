@@ -10,7 +10,7 @@ title:            Nadeem Afana's Blog
 tagline:          Home
 description:      Nadeem Afana
 url:              https://nadeemafana.github.io
-baseurl:          /
+baseurl:          
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars1.githubusercontent.com/u/677513?v=3&s=180
