@@ -18,6 +18,10 @@
     <meta property="twitter:title" content="{{ page.title }}" />
     {% endif %}
 
+    {%if page.tags %}
+    <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}"/>
+    {%endif %}
+    
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} &middot; {{ site.tagline }}
