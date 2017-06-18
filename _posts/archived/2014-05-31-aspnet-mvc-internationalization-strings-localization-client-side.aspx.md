@@ -5,6 +5,9 @@ redirect_from:
 - "/post/aspnet-mvc-internationalization-strings-localization-client-side.aspx.html"
 tags: [asp, .net, localization, i18n, g10n]
 ---
+**[Download Code](/attachments/posts/archived/aspnet-mvc-internationalization-strings-localization-client-side.zip)**
+
+
 In this post, I will show a technique on how to localize and use strings on the client-side based on the previous article [ASP.NET MVC Internationalization](/post/aspnet-mvc-internationalization.aspx).
 
 Nowadays, most web applications rely heavily on Javascript, and it is very likely that a web application needs to display some messages to the end user using Javascript whether for validation or notification purpose.
