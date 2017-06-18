@@ -33,8 +33,6 @@ pre code {
   word-wrap: break-word;
 }
 
-.highlight .m { color: #009999 } /* Literal Number */
-.highlight .o, .highlight .p, .highlight .p-indicator, .highlight .nv { color: #666666 } /* Operator */
 
 /* Theme overrides */
 pre {
