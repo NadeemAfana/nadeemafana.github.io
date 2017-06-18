@@ -5,7 +5,9 @@ redirect_from:
 - "/post/memory-barriers-in-dot-net.aspx.html"
 tags: [memory barrier, fence, intel, intel64, amd64, amd, reordering, processor]
 ---
-## Memory Barriers in .NET
+## Memory Barriers
+
+
 Nonblocking programming can provide performance benefits over locking, but getting it done right is significantly harder and requires careful testing. 
 When it comes to memory barriers, there is all sorts of confusion and misleading information. Because memory barrier can be counterintuitive, using them wrongly is easy, and applying them correctly requires a lot of effort and headache. The benefits memory barriers provide may not be worth it in most high-level applications. However, memory barriers are handy in performance critical software.
 
