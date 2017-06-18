@@ -54,7 +54,7 @@ if (!cookieExists("_timeZoneOffset")) {
 
 The previous javascript code should always be always executed, so it would be a good idea to put this code in a common place such as `_Layout.cshtml` 
 
-```html
+```
 <!DOCTYPE HTML>
 <html lang="@CultureHelper.GetCurrentNeutralCulture()" dir="@(CultureHelper.IsRightToLeft() ? " rtl"=rtl" = ="ltr" )"=)">
 <head>
@@ -161,7 +161,7 @@ public ActionResult Index()
 ```
 I used `DateTimeOffset` for illustrative purpose only, `DateTime` would work just fine. 
 
-```html
+```
 @model IEnumerable<DateTimeOffset>
 @using MvcInternationalization.Extensions 
  
