@@ -134,7 +134,7 @@ Looking at the disassembly code, I see the following for the thread `t` body:
 00B400EF      pop         ebp  
 00B400F0      ret
 ```
-{: ."highlight: [5,6]" }
+{: class="highlight:[5,6]"}
 
 
 
