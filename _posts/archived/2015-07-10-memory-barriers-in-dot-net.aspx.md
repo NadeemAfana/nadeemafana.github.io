@@ -238,63 +238,7 @@ Now after introducing memory barriers, let's take a look at the memory models fo
                         text-align: center;
                     }
         </style>
-<table class="table-memory-reordering">
-        <thead>
-            <tr>
-                <th></th>
-                <th colspan="3">Hardware</th>
-                <th colspan="2">CLR 2.0+</th>
-            </tr>
-
-            <tr>
-                <th>Operation</th>
-                <th>Intel x86 & Intel64</th>
-                <th>IA&nbsp;64</th>
-                <th>AMD64</th>
-                <th>Without Volatile</th>
-                <th>With Volatile</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td> <b>LOAD,&nbsp;LOAD</b> </td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>No</td>
-            </tr>
-
-            <tr>
-                <td> <b>LOAD,&nbsp;STORE</b> </td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>No</td>
-            </tr>
-
-            <tr>
-                <td> <b>STORE,&nbsp;STORE</b> </td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>No</td>
-                <td>No</td>
-                <td>No</td>
-            </tr>
-
-
-            <tr>
-                <td> <b>STORE,&nbsp;LOAD</b> </td>
-                <td>Yes, only if load and store are to different locations.</td>
-                <td>Yes</td>
-                <td>Yes, only if load and store are to different locations.</td>
-                <td>Yes</td>
-                <td>Yes</td>
-            </tr>
-        </tbody>
-    </table>
+<table class="table-memory-reordering"> <thead> <tr> <th></th> <th colspan="3">Hardware</th> <th colspan="2">CLR 2.0+</th> </tr> <tr> <th>Operation</th> <th>Intel x86 & Intel64</th> <th>IA&nbsp;64</th> <th>AMD64</th> <th>Without Volatile</th> <th>With Volatile</th> </tr> </thead> <tbody> <tr> <td> <b>LOAD,&nbsp;LOAD</b> </td> <td>No</td> <td>Yes</td> <td>No</td> <td>Yes</td> <td>No</td> </tr> <tr> <td> <b>LOAD,&nbsp;STORE</b> </td> <td>No</td> <td>Yes</td> <td>No</td> <td>Yes</td> <td>No</td> </tr> <tr> <td> <b>STORE,&nbsp;STORE</b> </td> <td>No</td> <td>Yes</td> <td>No</td> <td>No</td> <td>No</td> </tr> <tr> <td> <b>STORE,&nbsp;LOAD</b> </td> <td>Yes, only if load and store are to different locations.</td> <td>Yes</td> <td>Yes, only if load and store are to different locations.</td> <td>Yes</td> <td>Yes</td> </tr> </tbody> </table>
 
 A few comments based on the table above and after examining detailed documentation:
 * .NET Framework 4.5 does not support Itanium processors. However, I added it in the table for legacy purpose only. 
@@ -434,31 +378,7 @@ Although the effects of memory barriers depend on the hardware, software must be
 
 4. Inserting a memory barrier does not guarantee the order of operations before the memory barrier. A barrier can be thought of as a line of separation. For example
     
-    <table class="table-memory-reordering" style="width: 40%;">
-                    <thead>
-                        <tr>
-                            <th>Processor 1</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>X = 1</td>
-                        </tr>
-                        <tr>
-                            <td>B = 1</td>
-                        </tr>
-                        <tr>
-                            <td>Y = 1</td>
-                        </tr>
-                        <tr>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                        </tr>
-                        <tr>
-                            <td>Z = 2</td>
-                        </tr>
-                    </tbody>
-    </table>
+    <table class="table-memory-reordering" style="width:40%"> <thead> <tr> <th>Processor 1</th> </tr> </thead> <tbody> <tr> <td>X = 1</td> </tr> <tr> <td>B = 1</td> </tr> <tr> <td>Y = 1</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>Z = 2</td> </tr> </tbody> </table>
 
     The stores from processor 1 will be committed in 1 of 6 different ways:
     
@@ -471,81 +391,15 @@ Although the effects of memory barriers depend on the hardware, software must be
 
 5. In the example below, assuming `X = Y = 0`, if `LOAD Y` comes up with 1, then `LOAD X` must come up with 1. 
 
-        <table class="table-memory-reordering">
-                    <thead>
-                        <tr>
-                            <th>Processor 1</th>
-                            <th>Processor 2</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>X = 1 </td>
-                            <td>LOAD Y</td>
-                        </tr>
-                        <tr>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                        </tr>
-                        <tr>
-                            <td>Y = 1 </td>
-                            <td>LOAD X</td>
-                        </tr>
-                    </tbody>
-    </table>
+    <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>X = 1 </td> <td>LOAD Y</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>Y = 1 </td> <td>LOAD X</td> </tr> </tbody> </table>
 
 6. In the example below , assuming `X = Y = 0`, if `LOAD Y` comes up with 1, then `LOAD X` cannot come up with 1. 
         
-        <table class="table-memory-reordering">
-                    <thead>
-                        <tr>
-                            <th>Processor 1</th>
-                            <th>Processor 2</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Y = 1 </td>
-                            <td>X = 1</td>
-                        </tr>
-                        <tr>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                        </tr>
-                        <tr>
-                            <td>LOAD X</td>
-                            <td>LOAD Y</td>
-                        </tr>
-                    </tbody>
-    </table>
+    <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>Y = 1 </td> <td>X = 1</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>LOAD X</td> <td>LOAD Y</td> </tr> </tbody> </table>
 
 7. In the example below, assuming `X = Y = 0`, if `LOAD X` comes up with 1, then processor 1 store to Y must happen after processor 2 store to Y. Therefore, Y must be 2. 
 
-    <table class="table-memory-reordering">
-                    <thead>
-                        <tr>
-                            <th>Processor 1</th>
-                            <th>Processor 2</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Y = 2</td>
-                            <td>Y = 1</td>
-                        </tr>
-                        <tr>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                            <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                        </tr>
-                        <tr>
-                            <td>LOAD X</td>
-                            <td>X = 1</td>
-                        </tr>
-                    </tbody>
-        </table>
+    <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>Y = 2</td> <td>Y = 1</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>LOAD X</td> <td>X = 1</td> </tr> </tbody> </table>
 
 ## Load Speculation
 
@@ -559,31 +413,7 @@ For example, initially assume `X = Y = 0`.
 
 ### Example 3
 
-<table class="table-memory-reordering">
-            <thead>
-                <tr>
-                    <th>Processor 1</th>
-                    <th>Processor 2</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>LOAD X</td>
-                </tr>
-
-                <tr>
-                    <td>Y = 2</td>
-                    <td>Long latency instructions such as division and square-root</td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>LOAD Y</td>
-                </tr>
-            </tbody>
-</table>
+<table class="table-memory-reordering"><thead><tr><th>Processor 1</th><th>Processor 2</th></tr></thead><tbody><tr><td></td> <td>LOAD X</td> </tr> <tr> <td>Y = 2</td><td>Long latency instructions such as division and square-root</td></tr> <tr> <td></td> <td>LOAD Y</td> </tr></tbody></table>
 
 ![Load speculation example 3](/images/posts/archived/memory-barriers-in-dot-net-8.png "Load speculation example 3") 
 ##### Figure 7: Load Speculation. The green color indicates a current value, whereas the red color indicates a stale value. The dashed line indicates the processor is busy.
@@ -597,36 +427,12 @@ The order of memory operations as in the above figure:
 
 5. The value "0" of Y that processor 2 has prefetched is now out of date!
 
-A memory barrier in this case would fix the issue:
+    A memory barrier in this case would fix the issue:
 
 
-<table class="table-memory-reordering">
-            <thead>
-                <tr>
-                    <th>Processor 1</th>
-                    <th>Processor 2</th>
-                </tr>
-            </thead>
+    <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td></td> <td>LOAD X</td> </tr> <tr> <td>Y = 2 <br> <span style="background-color:#ff3">memory barrier</span></td> <td>Long latency instructions such as division and square-root</td> </tr> <tr> <td></td> <td><span style="background-color:#ff3">memory barrier</span> <br>LOAD Y</td> </tr> </tbody> </table>
 
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>LOAD X</td>
-                </tr>
-
-                <tr>
-                    <td>Y = 2 <br> <span style="background-color: #ffff33;">memory barrier</span></td>
-                    <td>Long latency instructions such as division and square-root</td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> <br>LOAD Y</td>
-                </tr>
-            </tbody>
-</table>
-
-The memory barrier above LOAD Y tells processor 2 to check the value of Y since it could have changed. If Y has changed, then it will be reloaded from memory. 
+    The memory barrier above LOAD Y tells processor 2 to check the value of Y since it could have changed. If Y has changed, then it will be reloaded from memory. 
 
 ## Memory Barrier Pairing
 If the purpose of a memory barrier is only multiprocessor synchronization, and by that, I mean hardware synchronization and not suppress JIT or compiler optimizations, then memory barriers should be paired.
@@ -641,39 +447,7 @@ A single barrier alone will not solve the problem that we discussed earlier. You
 A lack pf pairing can cause problems, for example, consider X = Y = 0 initially.
 
 ### Example 4
-
-<table class="table-memory-reordering">
-            <thead>
-                <tr>
-                    <th>Processor 1</th>
-                    <th>Processor 2</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>X = 1 </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Y = 1</td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>LOAD Y</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>LOAD X</td>
-                </tr>
-            </tbody>
-</table>
+<table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>X = 1 </td> <td></td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td></td> </tr> <tr> <td>Y = 1</td> <td></td> </tr> <tr> <td></td> <td>LOAD Y</td> </tr> <tr> <td></td> <td>LOAD X</td> </tr> </tbody> </table>
 
 Processor 2 might see the order of memory operations as follows
 ![Load speculation of example 4](/images/posts/archived/memory-barriers-in-dot-net-9.png "Load speculation of example 4") 
@@ -681,42 +455,7 @@ Processor 2 might see the order of memory operations as follows
 
 Despite the barrier in processor 1, processor 2 might perceive the wrong value of X. To solve the problem, a memory barrier is needed above the LOAD of X in processor 2. 
 
-<table class="table-memory-reordering">
-            <thead>
-                <tr>
-                    <th>Processor 1</th>
-                    <th>Processor 2</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>X = 1 </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Y = 1</td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>LOAD Y</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>LOAD X</td>
-                </tr>
-            </tbody>
-</table>
+<table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>X = 1 </td> <td></td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td></td> </tr> <tr> <td>Y = 1</td> <td></td> </tr> <tr> <td></td> <td>LOAD Y</td> </tr> <tr> <td></td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td></td> <td>LOAD X</td> </tr> </tbody> </table>
 
 ![Load speculation of example 4 fixed](/images/posts/archived/memory-barriers-in-dot-net-10.png "Load speculation of example 4 fixed") 
 ##### Figure 10: Added missing barrier. The green color indicates a current value, whereas the red color indicates a stale value.
@@ -732,42 +471,7 @@ A cache line is a fixed-length block of data. Data flows among processors' cache
 
 Looking at example 4 again,
 
-<table class="table-memory-reordering">
-            <thead>
-                <tr>
-                    <th>Processor 1</th>
-                    <th>Processor 2</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>X = 1 </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Y = 1</td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>LOAD Y</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>LOAD X</td>
-                </tr>
-            </tbody>
-</table>
+<table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>X = 1 </td> <td></td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td></td> </tr> <tr> <td>Y = 1</td> <td></td> </tr> <tr> <td></td> <td>LOAD Y</td> </tr> <tr> <td></td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td></td> <td>LOAD X</td> </tr> </tbody> </table>
 
 
 **Is it possible that LOAD Y comes up with 0 even though it ran after processor 1 `STORE Y = 1`?**
@@ -793,52 +497,9 @@ Assuming X = Y = 0 initially and both X and Y are in 1 and 2 caches.
 
 To fix this issue, a new pair of memory barriers is needed:
 
-<table class="table-memory-reordering">
-            <thead>
-                <tr>
-                    <th>Processor 1</th>
-                    <th>Processor 2</th>
-                </tr>
-            </thead>
+<table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>X = 1 </td> <td></td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td></td> </tr> <tr> <td>Y = 1</td> <td></td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td></td> </tr> <tr> <td></td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td></td> <td>LOAD Y</td> </tr> <tr> <td></td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td></td> <td>LOAD X</td> </tr> </tbody> </table>
 
-            <tbody>
-                <tr>
-                    <td>X = 1 </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Y = 1</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>LOAD Y</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><span style="background-color: #ffff33;">memory barrier</span> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>LOAD X</td>
-                </tr>
-            </tbody>
-</table>
-
-Note that one barrier alone is not enough.
+**Note** that one barrier alone is not enough.
 
 The new barrier in processor 1 is needed to flush the store buffer, and the new barrier in processor 2 is needed to make sure Y is up to date by flushing the invalidate queues.
 
