@@ -2,8 +2,7 @@
 layout: post
 title: ASP.NET MVC 5 Internationalization · Date and Time
 redirect_from:
-- "/post/aspnet-mvc-internationalization-date-time.aspx.html"
-- "/post/aspnet-mvc-internationalization-date-time.aspx"
+- "/post/aspnet-mvc-internationalization-date-time.aspx/"
 tags: [asp, .net, localization, i18n, g10n]
 ---
 **[Download Code](/attachments/posts/archived/aspnet-mvc-internationalization-date-time.zip)**
