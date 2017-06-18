@@ -2,7 +2,7 @@
 layout: post
 title: Extension Methods Library
 redirect_from:
-- "/post/Extension-Methods-Library.aspx"
+- "/post/Extension-Methods-Library.aspx/"
 tags: [C#, .net, extension methods, library]
 ---
 Extension methods are a compiler trick which allows static methods to be called using instance methods syntax. They are so convenient that LINQ is essentially a collection of extension methods. Extension methods are a good way to shrink your code and follow the DRY principle. For example, instead of the following long code
