@@ -309,6 +309,8 @@ A few comments based on the table above and after examining detailed documentati
     **So why use volatile?**
    
     Although using volatile is not recommended because of its subtleties, it can be used to suppress JIT compiler optimizations. Additionally, some older programs still run on IA64. 
+
+
 ## Atomic Operations
 Although a C# `lock` eliminates the need for a memory barrier. A C# lock is sometimes considered an expensive operation because it can lead to contention and thread descheduling. Smart programmers avoid locking if possible. Fortunately, processors provide atomic instructions such as xchg. Also, a simple write or read is considered an atomic operation on modern processors. Atomic instructions happen instantaneously and are much more efficient than locking. For example, the Interlocked class exposes methods that provide atomic behavior that take advantage of the processor atomic instructions directly.
 
@@ -432,7 +434,7 @@ Although the effects of memory barriers depend on the hardware, software must be
 
 4. Inserting a memory barrier does not guarantee the order of operations before the memory barrier. A barrier can be thought of as a line of separation. For example
     
-    <table class="table-memory-reordering" style="width: 20%;">
+    <table class="table-memory-reordering" style="width: 40%;">
                     <thead>
                         <tr>
                             <th>Processor 1</th>
@@ -469,7 +471,7 @@ Although the effects of memory barriers depend on the hardware, software must be
 
 5. In the example below, assuming `X = Y = 0`, if `LOAD Y` comes up with 1, then `LOAD X` must come up with 1. 
 
-  <table class="table-memory-reordering">
+        <table class="table-memory-reordering">
                     <thead>
                         <tr>
                             <th>Processor 1</th>
@@ -494,8 +496,8 @@ Although the effects of memory barriers depend on the hardware, software must be
     </table>
 
 6. In the example below , assuming `X = Y = 0`, if `LOAD Y` comes up with 1, then `LOAD X` cannot come up with 1. 
-
-    <table class="table-memory-reordering">
+        
+        <table class="table-memory-reordering">
                     <thead>
                         <tr>
                             <th>Processor 1</th>
@@ -584,7 +586,7 @@ For example, initially assume `X = Y = 0`.
 </table>
 
 ![Load speculation example 3](/images/posts/archived/memory-barriers-in-dot-net-8.png "Load speculation example 3") 
-#### Figure 7: Load Speculation. The green color indicates a current value, whereas the red color indicates a stale value. The dashed line indicates the processor is busy.
+##### Figure 7: Load Speculation. The green color indicates a current value, whereas the red color indicates a stale value. The dashed line indicates the processor is busy.
 
 The order of memory operations as in the above figure:
 1. Initially, processor 2 loads X where its value is 0.
@@ -675,7 +677,7 @@ A lack pf pairing can cause problems, for example, consider X = Y = 0 initially.
 
 Processor 2 might see the order of memory operations as follows
 ![Load speculation of example 4](/images/posts/archived/memory-barriers-in-dot-net-9.png "Load speculation of example 4") 
-#### Figure 9: Barrier Missing. The green color indicates a current value, whereas the red color indicates a stale value.
+##### Figure 9: Barrier Missing. The green color indicates a current value, whereas the red color indicates a stale value.
 
 Despite the barrier in processor 1, processor 2 might perceive the wrong value of X. To solve the problem, a memory barrier is needed above the LOAD of X in processor 2. 
 
@@ -717,7 +719,7 @@ Despite the barrier in processor 1, processor 2 might perceive the wrong value o
 </table>
 
 ![Load speculation of example 4 fixed](/images/posts/archived/memory-barriers-in-dot-net-10.png "Load speculation of example 4 fixed") 
-#### Figure 10: Added missing barrier. The green color indicates a current value, whereas the red color indicates a stale value.
+##### Figure 10: Added missing barrier. The green color indicates a current value, whereas the red color indicates a stale value.
 
 Now, the effects before the memory barrier in processor 1 (STORE X = 1) are available after the barrier in processor 2 (LOAD X). 
 
