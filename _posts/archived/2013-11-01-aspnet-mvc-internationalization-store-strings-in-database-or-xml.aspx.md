@@ -67,7 +67,7 @@ Populate the table with all the resource strings (You can find them in the **[at
 
 The database provider code looks like the following: 
 
-```csahrp
+```csharp
 using Resources.Abstract;
 using Resources.Entities;
  
