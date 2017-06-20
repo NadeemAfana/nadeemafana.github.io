@@ -2,7 +2,7 @@
 layout: post
 title: Tuple in C#
 redirect_from:
-- "post/tuple-csharp.aspx/"
+- "/post/tuple-csharp.aspx/"
 tags: [aspnet, C#, tuple]
 ---
 .NET Framework 4.0 has introduced some new types. Some of them are not popular like `Tuple`. 
