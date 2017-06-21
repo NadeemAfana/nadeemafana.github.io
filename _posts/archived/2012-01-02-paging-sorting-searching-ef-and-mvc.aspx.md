@@ -183,119 +183,7 @@ The links work fine. However, they are too many which makes our gridview look ug
 Modify the view Products.cshtml so that it looks like below
 
 <pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
-@model IList<AdventureWorksLT.Models.Product>
- 
-@{
-    ViewBag.Title = "Products";
-}
- 
- 
-@helper buildLinks(int start, int end, string innerContent)
-{
-     for (int i = start; i <= end; i++)
-     {
-         <a class="@(i == ViewBag.CurrentPage ? "current" : "")" href="@Url.Action("products", "home", new { page = i })">@(innerContent ?? i.ToString())</a>  
-     }
-     
-}
- 
- 
-@helper pageLinks()
-{
-    const int maxPages = 11;
-     
-    if (ViewBag.TotalPages <= maxPages)
-    {
-        @buildLinks(1, (int)ViewBag.TotalPages, null)
-        return;
-    }
- 
-    int pagesAfter = ViewBag.TotalPages - ViewBag.CurrentPage; // Number of pages after current
-    int pagesBefore = ViewBag.CurrentPage - 1; // Number of pages before current
- 
-    if (pagesAfter <= 4)
-    {
-        @buildLinks(1, 1, null) // Show 1st page
- 
-        int pageSubset = ViewBag.TotalPages - maxPages - 1 > 1 ? ViewBag.TotalPages - maxPages - 1 : 2;
-        @buildLinks(pageSubset, pageSubset, "...") // Show page subset (...)
- 
-        @buildLinks(ViewBag.TotalPages - maxPages + 3, ViewBag.TotalPages, null) // Show last pages
- 
-        return; // Exit
-    }
- 
-    if (pagesBefore <= 4)
-    {
-       @buildLinks(1, maxPages - 2, null) // Show 1st pages
- 
- 
-       int pageSubset = maxPages + 2 < ViewBag.TotalPages ? maxPages + 2 : ViewBag.TotalPages - 1;
-       @buildLinks(pageSubset, pageSubset, "...") // Show page subset (...)
- 
-       @buildLinks(ViewBag.TotalPages, ViewBag.TotalPages, null) // Show last page
- 
-        return; // Exit
- 
-    }
- 
-    if (pagesAfter > 4)
-    {
-        @buildLinks(1, 1, null) // Show 1st pages
- 
-        int pageSubset1 = ViewBag.CurrentPage - 7 > 1 ? ViewBag.CurrentPage - 7 : 2;
-        int pageSubset2 = ViewBag.CurrentPage + 7 < ViewBag.TotalPages ? ViewBag.CurrentPage + 7 : ViewBag.TotalPages - 1;
- 
-        @buildLinks(pageSubset1, pageSubset1, pageSubset1 == ViewBag.CurrentPage - 4 ? null : "...") // Show 1st page subset (...)
- 
-        @buildLinks(ViewBag.CurrentPage - 3, ViewBag.CurrentPage + 3, null) // Show middle pages
- 
-        // Show 2nd page subset (...)
-        // only show ... if page is contigous to the previous one.
-        @buildLinks(pageSubset2, pageSubset2, pageSubset2 ==  ViewBag.CurrentPage + 4 ? null : "...")
-        @buildLinks(ViewBag.TotalPages, ViewBag.TotalPages, null) // Show last page
- 
-        return; // Exit
- 
-    }    
-}
-<h2 class="center">Products</h2>
- 
-<table class="products">
- @* header *@
- <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Number</th>
-    <th>Color</th>
-    <th>Standard Cost</th>
-    <th>List Price</th>
-    <th>Size</th>
-    <th>Weight</th>
- </tr>
- 
-  
-@{int i = 1;}
-@foreach (var p in Model)
-{    
-    <tr class="@(i++ % 2 == 0 ? "highlighted" : "")">
-        <td>@p.ProductID</td>
-        <td>@p.Name</td>
-        <td>@p.ProductNumber</td>
-        <td>@p.Color</td>
-        <td>@p.StandardCost.ToString("C")</td>
-        <td>@p.ListPrice.ToString("C")</td>
-        <td>@p.Size</td>
-        <td>@p.Weight</td>       
-    </tr>
-}
- 
-</table>
- 
-<div class="pagination">
-Page: 
-@pageLinks()       
-</div>
+@model IList&lt;AdventureWorksLT.Models.Product&gt;&#10; &#10;@{&#10;    ViewBag.Title = &#34;Products&#34;;&#10;}&#10; &#10; &#10;@helper buildLinks(int start, int end, string innerContent)&#10;{&#10;     for (int i = start; i &lt;= end; i++)&#10;     {&#10;         &lt;a class=&#34;@(i == ViewBag.CurrentPage ? &#34;current&#34; : &#34;&#34;)&#34; href=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;, new { page = i })&#34;&gt;@(innerContent ?? i.ToString())&lt;/a&gt;  &#10;     }&#10;     &#10;}&#10; &#10; &#10;@helper pageLinks()&#10;{&#10;    const int maxPages = 11;&#10;     &#10;    if (ViewBag.TotalPages &lt;= maxPages)&#10;    {&#10;        @buildLinks(1, (int)ViewBag.TotalPages, null)&#10;        return;&#10;    }&#10; &#10;    int pagesAfter = ViewBag.TotalPages - ViewBag.CurrentPage; // Number of pages after current&#10;    int pagesBefore = ViewBag.CurrentPage - 1; // Number of pages before current&#10; &#10;    if (pagesAfter &lt;= 4)&#10;    {&#10;        @buildLinks(1, 1, null) // Show 1st page&#10; &#10;        int pageSubset = ViewBag.TotalPages - maxPages - 1 &gt; 1 ? ViewBag.TotalPages - maxPages - 1 : 2;&#10;        @buildLinks(pageSubset, pageSubset, &#34;...&#34;) // Show page subset (...)&#10; &#10;        @buildLinks(ViewBag.TotalPages - maxPages + 3, ViewBag.TotalPages, null) // Show last pages&#10; &#10;        return; // Exit&#10;    }&#10; &#10;    if (pagesBefore &lt;= 4)&#10;    {&#10;       @buildLinks(1, maxPages - 2, null) // Show 1st pages&#10; &#10; &#10;       int pageSubset = maxPages + 2 &lt; ViewBag.TotalPages ? maxPages + 2 : ViewBag.TotalPages - 1;&#10;       @buildLinks(pageSubset, pageSubset, &#34;...&#34;) // Show page subset (...)&#10; &#10;       @buildLinks(ViewBag.TotalPages, ViewBag.TotalPages, null) // Show last page&#10; &#10;        return; // Exit&#10; &#10;    }&#10; &#10;    if (pagesAfter &gt; 4)&#10;    {&#10;        @buildLinks(1, 1, null) // Show 1st pages&#10; &#10;        int pageSubset1 = ViewBag.CurrentPage - 7 &gt; 1 ? ViewBag.CurrentPage - 7 : 2;&#10;        int pageSubset2 = ViewBag.CurrentPage + 7 &lt; ViewBag.TotalPages ? ViewBag.CurrentPage + 7 : ViewBag.TotalPages - 1;&#10; &#10;        @buildLinks(pageSubset1, pageSubset1, pageSubset1 == ViewBag.CurrentPage - 4 ? null : &#34;...&#34;) // Show 1st page subset (...)&#10; &#10;        @buildLinks(ViewBag.CurrentPage - 3, ViewBag.CurrentPage + 3, null) // Show middle pages&#10; &#10;        // Show 2nd page subset (...)&#10;        // only show ... if page is contigous to the previous one.&#10;        @buildLinks(pageSubset2, pageSubset2, pageSubset2 ==  ViewBag.CurrentPage + 4 ? null : &#34;...&#34;)&#10;        @buildLinks(ViewBag.TotalPages, ViewBag.TotalPages, null) // Show last page&#10; &#10;        return; // Exit&#10; &#10;    }    &#10;}&#10;&lt;h2 class=&#34;center&#34;&gt;Products&lt;/h2&gt;&#10; &#10;&lt;table class=&#34;products&#34;&gt;&#10; @* header *@&#10; &lt;tr&gt;&#10;    &lt;th&gt;ID&lt;/th&gt;&#10;    &lt;th&gt;Name&lt;/th&gt;&#10;    &lt;th&gt;Number&lt;/th&gt;&#10;    &lt;th&gt;Color&lt;/th&gt;&#10;    &lt;th&gt;Standard Cost&lt;/th&gt;&#10;    &lt;th&gt;List Price&lt;/th&gt;&#10;    &lt;th&gt;Size&lt;/th&gt;&#10;    &lt;th&gt;Weight&lt;/th&gt;&#10; &lt;/tr&gt;&#10; &#10;  &#10;@{int i = 1;}&#10;@foreach (var p in Model)&#10;{    &#10;    &lt;tr class=&#34;@(i++ % 2 == 0 ? &#34;highlighted&#34; : &#34;&#34;)&#34;&gt;&#10;        &lt;td&gt;@p.ProductID&lt;/td&gt;&#10;        &lt;td&gt;@p.Name&lt;/td&gt;&#10;        &lt;td&gt;@p.ProductNumber&lt;/td&gt;&#10;        &lt;td&gt;@p.Color&lt;/td&gt;&#10;        &lt;td&gt;@p.StandardCost.ToString(&#34;C&#34;)&lt;/td&gt;&#10;        &lt;td&gt;@p.ListPrice.ToString(&#34;C&#34;)&lt;/td&gt;&#10;        &lt;td&gt;@p.Size&lt;/td&gt;&#10;        &lt;td&gt;@p.Weight&lt;/td&gt;       &#10;    &lt;/tr&gt;&#10;}&#10; &#10;&lt;/table&gt;&#10; &#10;&lt;div class=&#34;pagination&#34;&gt;&#10;Page: &#10;@pageLinks()       &#10;&lt;/div&gt;
 </pre>
 
 Don't worry if you do not understand completely the second helper as it is a little awkward.
@@ -380,24 +268,7 @@ We added two new parameters to the action method, `sortBy` and `isAsc`. The `sor
 Now we have to give the end user the ability to sort. Modify the view like below:
 
 <pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
-@helper sortLink(string name, int id)
-{
-   <a href="@Url.Action("products", "home", new { sortby = id, isasc = (id == ViewBag.sortBy ? !@ViewBag.isAsc : @ViewBag.isAsc).ToString().ToLower() })">@name</a> 
-}
-<h2 class="center">Products</h2>
- 
-<table class="products">
- @* header *@
- <tr>
-    <th>@sortLink("ID", 1)</th>
-    <th>@sortLink("Name", 2)</th>
-    <th>@sortLink("Number", 3)</th>
-    <th>@sortLink("Color", 4)</th>
-    <th>@sortLink("Standard Cost", 5)</th>
-    <th>@sortLink("List Price", 6)</th>
-    <th>@sortLink("Size", 7)</th>
-    <th>@sortLink("Weight", 8)</th>
- </tr>
+@helper sortLink(string name, int id)&#10;{&#10;   &lt;a href=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;, new { sortby = id, isasc = (id == ViewBag.sortBy ? !@ViewBag.isAsc : @ViewBag.isAsc).ToString().ToLower() })&#34;&gt;@name&lt;/a&gt; &#10;}&#10;&lt;h2 class=&#34;center&#34;&gt;Products&lt;/h2&gt;&#10; &#10;&lt;table class=&#34;products&#34;&gt;&#10; @* header *@&#10; &lt;tr&gt;&#10;    &lt;th&gt;@sortLink(&#34;ID&#34;, 1)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;Name&#34;, 2)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;Number&#34;, 3)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;Color&#34;, 4)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;Standard Cost&#34;, 5)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;List Price&#34;, 6)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;Size&#34;, 7)&lt;/th&gt;&#10;    &lt;th&gt;@sortLink(&#34;Weight&#34;, 8)&lt;/th&gt;&#10; &lt;/tr&gt;
 </pre>
 
  Here helpers become really handy. We defined a new helper that will generate the hyper link that will trigger the action with the sorting parameters set. The first parameter name specifies the name of the column header, and id is the number of the column that we used for sorting in the action. The helper sortLink is smart enough to flip the sorting direction when the user clicks twice on the same column.
@@ -408,13 +279,7 @@ Now we have to give the end user the ability to sort. Modify the view like below
 
  
 <pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
-@helper sortLink(string name, int id)
-{
-   <a href="@Url.Action("products", "home", new { sortby = id, isasc = (id == ViewBag.sortBy ? (!@ViewBag.isAsc).ToString().ToLower() : true) })">@name</a> 
-    if (id == ViewBag.sortBy){
-        <span class="arrow @(ViewBag.isAsc ? "up" : "down" )"></span>
-    }
-}
+@helper sortLink(string name, int id)&#10;{&#10;   &lt;a href=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;, new { sortby = id, isasc = (id == ViewBag.sortBy ? (!@ViewBag.isAsc).ToString().ToLower() : true) })&#34;&gt;@name&lt;/a&gt; &#10;    if (id == ViewBag.sortBy){&#10;        &lt;span class=&#34;arrow @(ViewBag.isAsc ? &#34;up&#34; : &#34;down&#34; )&#34;&gt;&lt;/span&gt;&#10;    }&#10;}
 </pre>
 
 The previous code simply adds an arrow to the currently sorted column.
@@ -426,14 +291,106 @@ There is still one problem. When we click on any page link, the sorting is switc
 Modify the buildLinks helper like below:
 
 <pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
-@helper buildLinks(int start, int end, string innerContent)
-{
-     for (int i = start; i <= end; i++)
-     {
-         <a class="@(i == ViewBag.CurrentPage ? "current" : "")" href="@Url.Action("products", "home", new { page = i, sortBy = ViewBag.sortBy, isAsc = ViewBag.isAsc })">@(innerContent ?? i.ToString())</a>      
-     }
-     
-}   
+@helper buildLinks(int start, int end, string innerContent)&#10;{&#10;     for (int i = start; i &lt;= end; i++)&#10;     {&#10;         &lt;a class=&#34;@(i == ViewBag.CurrentPage ? &#34;current&#34; : &#34;&#34;)&#34; href=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;, new { page = i, sortBy = ViewBag.sortBy, isAsc = ViewBag.isAsc })&#34;&gt;@(innerContent ?? i.ToString())&lt;/a&gt;      &#10;     }&#10;     &#10;} 
 </pre>
 
+Now the page links reflect the sorting direction and column.
+### Searching
+
+The only thing left to polish our website is searching. We want our users to be able to search the products that we have.
+
+We need to accept a search string from the user. Modify the action like below:
+
+```csharp
+[HttpGet]
+public ActionResult Products(int page = 1, int sortBy = 1, bool isAsc = true, string search = null)
+{
+    IEnumerable<Product> products = db.Products.Where(
+            p => search == null
+            || p.Name.Contains(search)
+            || p.ProductNumber.Contains(search)
+            || p.Color.Contains(search));
+ 
+    #region Sorting
+    switch (sortBy)
+    {
+        case 1:
+            products = isAsc ? products.OrderBy(p => p.ProductID) : products.OrderByDescending(p => p.ProductID);
+            break;
+ 
+        case 2:
+            products = isAsc ? products.OrderBy(p => p.Name) : products.OrderByDescending(p => p.Name);
+            break;
+ 
+        case 3:
+            products = isAsc ? products.OrderBy(p => p.ProductNumber) : products.OrderByDescending(p => p.ProductNumber);
+            break;
+ 
+        case 4:
+            products = isAsc ? products.OrderBy(p => p.Color) : products.OrderByDescending(p => p.Color);
+            break;
+ 
+        case 5:
+            products = isAsc ? products.OrderBy(p => p.StandardCost) : products.OrderByDescending(p => p.StandardCost);
+            break;
+ 
+        case 6:
+            products = isAsc ? products.OrderBy(p => p.ListPrice) : products.OrderByDescending(p => p.ListPrice);
+            break;
+ 
+        case 7:
+            products = isAsc ? products.OrderBy(p => p.Size) : products.OrderByDescending(p => p.Size);
+            break;
+ 
+        default:
+            products = isAsc ? products.OrderBy(p => p.Weight) : products.OrderByDescending(p => p.Weight);
+            break;
+    }
+    #endregion
+    ViewBag.TotalPages = (int)Math.Ceiling((double)products.Count() / pageSize);
+ 
+    products = products     
+        .Skip((page - 1) * pageSize)
+        .Take(pageSize)                
+        .ToList();
+     
+    ViewBag.CurrentPage = page;
+    ViewBag.PageSize = pageSize;            
+    ViewBag.Search = search;
+ 
+    ViewBag.SortBy = sortBy;
+    ViewBag.IsAsc = isAsc;
+ 
+    return View(products);
+}
+```
+
+We made decent changes to our previous code. The `Where` method is used for filtering, and we used it to retrieve the products that match some pattern. The first condition `search == null` returns true when the user has not entered any search criteria, and thus returns all products.
+
+Clearly, the number of products will change depending on the search criteria, so we adjusted `ViewBag.TotalPages`. Now the products number is updated after search.
+
+Every time you add some features to a controller that takes input from the user, you have to tweak your views to reflect the changes.
+
+We'll add the search form first. Add the following `DIV` panel under the title.
+
+<pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
+&lt;div class=&#34;product-search&#34;&gt;&#10; &#10;&lt;form action=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;)&#34; method=&#34;get&#34;&gt;&#10;    Search &lt;input id=&#34;search&#34; name=&#34;search&#34; type=&#34;text&#34; value=&#34;@ViewBag.Search&#34; /&gt;&#10;    &lt;input type=&#34;submit&#34; value=&#34;Search&#34; /&gt;&#10;&lt;/form&gt; &#10; &#10;&lt;/div&gt;
+</pre>
+
+Now we need to fix the page links again to reflect the search:
+
+<pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
+@helper buildLinks(int start, int end, string innerContent)&#10;{&#10;     for (int i = start; i &lt;= end; i++)&#10;     {&#10;         &lt;a class=&#34;@(i == ViewBag.CurrentPage ? &#34;current&#34; : &#34;&#34;)&#34; &#10;         href=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;, new { page = i, sortBy = ViewBag.sortBy, isAsc = ViewBag.isAsc, search = ViewBag.Search })&#34;&gt;@(innerContent ?? i.ToString())&lt;/a&gt;      &#10;     }&#10;     &#10;}
+</pre>
+
+![](/images/posts/archived/paging-sorting-and-searching-ef-cf-and-mvc-26.png)
+
+
+Now our gridview looks professional!
+
+We tackled the problems one by one. As soon as we finished implementing a feature in our controller, we moved to the view to reflect our changes.
+
+Another nice feature that you can do is allowing the user to adjust the page size.
+
+I hope this helps.
 
