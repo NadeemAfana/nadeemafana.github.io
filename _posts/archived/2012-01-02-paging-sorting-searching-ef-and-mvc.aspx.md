@@ -196,7 +196,7 @@ Now refresh your browser and you should see a professional pagination tool:
 
 ![](/images/posts/archived/paging-sorting-and-searching-ef-cf-and-mvc-23.png)
 
-###Sorting
+### Sorting
 
 Now that we have enabled pagination, we also would like to allow the user to sort the products. Sorting is usually done in the database, and not in C#.
 
