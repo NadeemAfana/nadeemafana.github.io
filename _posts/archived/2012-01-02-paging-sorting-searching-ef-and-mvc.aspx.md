@@ -182,7 +182,7 @@ The links work fine. However, they are too many which makes our gridview look ug
 
 Modify the view Products.cshtml so that it looks like below
 
-```
+<pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
 @model IList<AdventureWorksLT.Models.Product>
  
 @{
@@ -296,7 +296,7 @@ Modify the view Products.cshtml so that it looks like below
 Page: 
 @pageLinks()       
 </div>
-```
+</pre>
 
 Don't worry if you do not understand completely the second helper as it is a little awkward.
 
@@ -379,7 +379,7 @@ We added two new parameters to the action method, `sortBy` and `isAsc`. The `sor
 
 Now we have to give the end user the ability to sort. Modify the view like below:
 
-```
+<pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
 @helper sortLink(string name, int id)
 {
    <a href="@Url.Action("products", "home", new { sortby = id, isasc = (id == ViewBag.sortBy ? !@ViewBag.isAsc : @ViewBag.isAsc).ToString().ToLower() })">@name</a> 
@@ -398,7 +398,7 @@ Now we have to give the end user the ability to sort. Modify the view like below
     <th>@sortLink("Size", 7)</th>
     <th>@sortLink("Weight", 8)</th>
  </tr>
- ```
+</pre>
 
  Here helpers become really handy. We defined a new helper that will generate the hyper link that will trigger the action with the sorting parameters set. The first parameter name specifies the name of the column header, and id is the number of the column that we used for sorting in the action. The helper sortLink is smart enough to flip the sorting direction when the user clicks twice on the same column.
 
@@ -407,7 +407,7 @@ Now we have to give the end user the ability to sort. Modify the view like below
  Let's make it even nicer. We want to add an arrow to indicate the sort direction. Add the following code to the helper we just created.
 
  
-```
+<pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
 @helper sortLink(string name, int id)
 {
    <a href="@Url.Action("products", "home", new { sortby = id, isasc = (id == ViewBag.sortBy ? (!@ViewBag.isAsc).ToString().ToLower() : true) })">@name</a> 
@@ -415,7 +415,7 @@ Now we have to give the end user the ability to sort. Modify the view like below
         <span class="arrow @(ViewBag.isAsc ? "up" : "down" )"></span>
     }
 }
-```
+</pre>
 
 The previous code simply adds an arrow to the currently sorted column.
 
