@@ -126,3 +126,4 @@ static int[] Process(int[] arr, Func<int, int> processor)
     return result;
 }
 ```
+The method `Process` accepts a delegate which takes an integer and returns an integer. We used three different lambda expressions.
