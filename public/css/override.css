@@ -71,10 +71,7 @@ body .post p {
  width:900px !important;
  margin:1em 0 1em 0 !important;
  position:relative !important;
- overflow:auto !important;
- font-size:11pt !important;
- 
- 
+ font-size:11pt !important; 
 }
 
 .syntaxhighlighter.source{
