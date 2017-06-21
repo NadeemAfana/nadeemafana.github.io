@@ -3,6 +3,7 @@ layout: post
 title: ECMAScript 5 Array methods
 redirect_from:
 - "/post/es5-array-methods.aspx/"
+- "/post/es5-array-methods.aspx.html"
 tags: [es5, javascript]
 ---
 ES5 has nice array methods. In case you didn't hear about them, I will show their usage with some examples.
