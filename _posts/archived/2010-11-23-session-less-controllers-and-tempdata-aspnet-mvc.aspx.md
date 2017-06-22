@@ -2,8 +2,8 @@
 layout: post
 title: Create a Wizard in ASP.NET MVC 3
 redirect_from:
-- "/post/session-less-controllers-and-TempData-ASPNET-MVC.html"
-- "/post/session-less-controllers-and-TempData-ASPNET-MVC/"
+- "/post/session-less-controllers-and-TempData-ASPNET-MVC.aspx.html"
+- "/post/session-less-controllers-and-TempData-ASPNET-MVC.aspx/"
 tags: [aspnetmvc, aspnet, mvc, session]
 ---
 **[Download Code](/attachments/posts/archived/session-less-controllers-and-tempdata-aspnet-mvc.zip)**
