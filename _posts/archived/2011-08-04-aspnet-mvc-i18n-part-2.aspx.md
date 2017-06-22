@@ -4,7 +4,7 @@ title: ASP.NET MVC Internationalization - Part 2 (NerdDinner)
 redirect_from:
 - "/post/aspnet-mvc-internationalization-part-2.aspx.html"
 - "/post/aspnet-mvc-internationalization-part-2.aspx/"
-tags: [aspnet, i18n, g10n, nerddinner]
+tags: [aspnet, i18n, g11n, nerddinner]
 ---
 **[Download Code](https://github.com/NadeemAfana/NerdDinner-Internationalization)**
 

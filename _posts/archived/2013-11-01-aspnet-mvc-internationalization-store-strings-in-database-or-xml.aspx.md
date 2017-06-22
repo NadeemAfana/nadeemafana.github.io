@@ -3,7 +3,7 @@ layout: post
 title: ASP.NET MVC 5 Internationalization · How to Store Strings in a Database or Xml
 redirect_from:
 - "/post/aspnet-mvc-internationalization-store-strings-in-database-or-xml.aspx/"
-tags: [aspnet, i18n, g10n, localization, globalization, internationalization]
+tags: [aspnet, i18n, g11n, localization, globalization, internationalization]
 ---
 **[Download Code](/attachments/posts/archived/aspnet-mvc-internationalization-store-strings-in-database-or-xml.zip)**
 

@@ -3,7 +3,7 @@ layout: post
 title: ASP.NET MVC 5 Internationalization · Strings Localization on the client-side
 redirect_from:
 - "/post/aspnet-mvc-internationalization-strings-localization-client-side.aspx.html"
-tags: [asp, .net, localization, i18n, g10n]
+tags: [asp, .net, localization, i18n, g11n]
 ---
 **[Download Code](/attachments/posts/archived/aspnet-mvc-internationalization-strings-localization-client-side.zip)**
 
@@ -161,10 +161,3 @@ public override string GetVaryByCustomString(HttpContext context, string custom)
     return base.GetVaryByCustomString(context, custom);
 }
 ```
-
-
-
-
-
-
-
