@@ -83,8 +83,8 @@ body .post p {
 .syntaxhighlighter .italic{
  font-style:italic !important;
 }
-.syntaxhighlighter .line{
- white-space:pre !important;
+.syntaxhighlighter .line {
+ white-space:pre-wrap !important;
 }
 .syntaxhighlighter table{
  width:100% !important;
@@ -110,7 +110,7 @@ body .post p {
  background:white !important;
  padding-left:1em !important;
  overflow:hidden !important;
- white-space:pre !important;
+ white-space:pre-wrap !important;
 }
 .syntaxhighlighter table td.gutter .line{
  text-align:right !important;
