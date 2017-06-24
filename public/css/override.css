@@ -358,3 +358,13 @@ body .post p {
    background-color: #fff !important; 
 }
 
+a:hover, a:focus {
+    color: #268bd2 !important;
+    transition: 0.4s;
+}
+
+a.sidebar-nav-item:hover, a.sidebar-nav-item:focus {
+    text-decoration: none;
+}
+
+
