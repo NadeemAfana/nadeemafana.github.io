@@ -374,7 +374,8 @@ Every time you add some features to a controller that takes input from the user,
 We'll add the search form first. Add the following `DIV` panel under the title.
 
 <pre markdown="0" class="brush: csharp; class-name: 'razor'; toolbar: false;">
-&lt;div class=&#34;product-search&#34;&gt;&#10; &#10;&lt;form action=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;)&#34; method=&#34;get&#34;&gt;&#10;    Search &lt;input id=&#34;search&#34; name=&#34;search&#34; type=&#34;text&#34; value=&#34;@ViewBag.Search&#34; /&gt;&#10;    &lt;input type=&#34;submit&#34; value=&#34;Search&#34; /&gt;&#10;&lt;/form&gt; &#10; &#10;&lt;/div&gt;
+ &lt;div class=&#34;product-search&#34;
+&gt;&#10; &#10;&lt;form action=&#34;@Url.Action(&#34;products&#34;, &#34;home&#34;)&#34; method=&#34;get&#34;&gt;&#10;    Search &lt;input id=&#34;search&#34; name=&#34;search&#34; type=&#34;text&#34; value=&#34;@ViewBag.Search&#34; /&gt;&#10;    &lt;input type=&#34;submit&#34; value=&#34;Search&#34; /&gt;&#10;&lt;/form&gt; &#10; &#10;&lt;/div&gt;
 </pre>
 
 Now we need to fix the page links again to reflect the search:
