@@ -369,6 +369,7 @@ a.sidebar-nav-item:hover, a.sidebar-nav-item:focus, .page-title, .post-title, .p
 
 pre, .syntaxhighlighter  {
   border: 1px solid #e4e4e4;
+  background-color: unset;
 }
 
 .syntaxhighlighter {
