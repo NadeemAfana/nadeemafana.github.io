@@ -59,7 +59,7 @@ byte[] GetRc4HmacKey(string password)
 When it comes to AES, things are more complicated than a simple hash. Although key generation is documented in `RFC3962`, the process is hard to follow through and is rather complicated.
 
 ## AES-128-CTS-HMAC-SHA1-96
-he encryption algorithm used by `AES-128-CTS-HMAC-SHA1-96` is `AES CBC CTS` with 128-bits key size. CTS, **Cipher Text Stealing**, generates a cipher text which has exactly the same size as the input plain text. CTS won't matter in our case since the input data size is exactly 16 octets, one block, so we could simply use AES CBC instead. 
+The encryption algorithm used by `AES-128-CTS-HMAC-SHA1-96` is `AES CBC CTS` with 128-bits key size. CTS, **Cipher Text Stealing**, generates a cipher text which has exactly the same size as the input plain text. CTS won't matter in our case since the input data size is exactly 16 octets, one block, so we could simply use AES CBC instead. 
 
 The slightly simplified formula for generating the AES 128-bit key is:
 ```
