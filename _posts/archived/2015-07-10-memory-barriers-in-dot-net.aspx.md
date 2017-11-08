@@ -392,7 +392,7 @@ Although the effects of memory barriers depend on the hardware, software must be
 
     <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>X = 1 </td> <td>LOAD Y</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>Y = 1 </td> <td>LOAD X</td> </tr> </tbody> </table>
 
-6. In the example below , assuming `X = Y = 0`, if `LOAD Y` comes up with 1, then `LOAD X` cannot come up with 1. 
+6. In the example below , assuming `X = Y = 0`, if `LOAD Y` comes up with 0, then `LOAD X` must come up with 1. The situation `Y=0` and `X=0` is not possible.
         
     <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>Y = 1 </td> <td>X = 1</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>LOAD X</td> <td>LOAD Y</td> </tr> </tbody> </table>
 
