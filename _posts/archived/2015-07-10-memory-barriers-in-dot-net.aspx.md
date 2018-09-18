@@ -396,10 +396,6 @@ Although the effects of memory barriers depend on the hardware, software must be
         
     <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>Y = 1 </td> <td>X = 1</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>LOAD X</td> <td>LOAD Y</td> </tr> </tbody> </table>
 
-7. In the example below, assuming `X = Y = 0`, if `LOAD X` comes up with 1, then processor 1 store to Y must happen after processor 2 store to Y. Therefore, Y must be 2. 
-
-    <table class="table-memory-reordering"> <thead> <tr> <th>Processor 1</th> <th>Processor 2</th> </tr> </thead> <tbody> <tr> <td>Y = 2</td> <td>Y = 1</td> </tr> <tr> <td><span style="background-color:#ff3">memory barrier</span> </td> <td><span style="background-color:#ff3">memory barrier</span> </td> </tr> <tr> <td>LOAD X</td> <td>X = 1</td> </tr> </tbody> </table>
-
 ## Load Speculation
 
 Modern processors prefetch data from main memory before the program needs it. The goal is to predict which data the program needs to consume. This makes the data immediately available when the program execution instruction gets to the point of the LOAD. 
