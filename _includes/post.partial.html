@@ -1,0 +1,11 @@
+{% capture date %}{{ post.date }}{% endcapture %}
+{% capture current_year %}{{ date | date: "%Y" }}{% endcapture %}
+{% unless year == current_year %}
+	{% assign year = current_year %}
+	{% unless forloop.first %}
+		</ul>
+	{% endunless %}
+	<h2 class="year">{{ date | date: "%Y" }}</h2>
+	<ul>
+{% endunless %}
+<li><a href="{{ post.url }}">{{ post.title }}</a></li>  

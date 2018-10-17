@@ -1,0 +1,14 @@
+---
+layout: page
+title: Archives
+---
+<div class="archives">
+    {% for post in site.posts  %}
+    {% if post.categories contains 'physics' %}
+      {% if post.layout == 'post' %}
+        {% include post.partial.html %}
+      {% endif %}
+    {% endif %}
+    {% endfor %}
+      </ul>
+</div>

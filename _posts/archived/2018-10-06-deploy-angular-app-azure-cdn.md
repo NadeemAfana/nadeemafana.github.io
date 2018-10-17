@@ -9,7 +9,6 @@ tags:
 - circleci
 - angularcli
 ---
-## Deploying Angular App using CircleCI to Azure CDN with no Downtime
 Recently, I migrated an Agular app from Azure Web App to Azure CDN from Verizon. There are important benefits to using CDN over a regular web app such as cost and delivery speed. I shall save the migration process to another post.
 
 In this post, I am going to build a CircleCI script that deploys an Angular app to Azure CDN with no downtime. Of course, the same behavior can be achieved using a different CI system.
@@ -36,12 +35,12 @@ jobs:
       - setup_remote_docker
       - checkout
       - restore_cache:
-          key: npm-dependency-cache-{{ checksum "package.json" }}
+          key: npm-dependency-cache-{{ "{{" }} checksum "package.json" }}
       - run:
           name: Install npm packages
           command: npm install
       - save_cache:
-          key: npm-dependency-cache-{{ checksum "package.json" }}
+          key: npm-dependency-cache-{{ "{{" }} checksum "package.json" }}
           paths:
             - node_modules
       - run:
