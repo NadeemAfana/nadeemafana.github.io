@@ -353,7 +353,7 @@ and its template
 </div>
 ```
 
-Notice how the expression `{{ now | date:'fullDate' }}` renders the localized version of the date.
+Notice how the expression `{{ "{{" }} now | date:'fullDate' }}` renders the localized version of the date.
 
 **Spanish**
 ![](/images/posts/archived/angular-i18n-2.png)
@@ -462,5 +462,7 @@ provide: APP_BASE_HREF, useFactory: () => {
 I suppressed the default locale (ie `en-US`) from the url on purpose, but that behavior can be changed easily.
 
 ![](/images/posts/archived/angular-i18n-4.png)
+
 ![](/images/posts/archived/angular-i18n-5.png)
+
 ![](/images/posts/archived/angular-i18n-6.png)
