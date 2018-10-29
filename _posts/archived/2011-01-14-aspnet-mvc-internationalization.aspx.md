@@ -55,10 +55,10 @@ Console.WriteLine(value.ToString("c"));
  
 // Output
 26-07-2011 // Date in es-CL, Spanish (Chile)
-$5.600,00 // Currency in es-CL, Spanish (Chile)
+\$5.600,00 // Currency in es-CL, Spanish (Chile)
  
 26/07/2011 // Date in es-MX, Spanish (Mexico)
-$5,600.00 // Currency in es-MX, Spanish (Mexico)
+\$5,600.00 // Currency in es-MX, Spanish (Mexico)
 ```
 
 You can notice the difference in date and currency format. The decimal separator in each region is different and can confuse people in the other region. If a Mexican user types one thousand in their culture "1,000", it will be interpreted as 1 (one) in a Chilean culture website. We mainly need regions for this type of reasons and not much for the language itself.
