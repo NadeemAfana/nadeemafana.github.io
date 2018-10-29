@@ -30,6 +30,12 @@
     {% endif %}
   </title>
 
+  <script>
+    if (window.location.host == 'afana.me' && window.location.protocol != "https:") {
+        window.location.protocol = "https";
+    }
+  </script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/syntax.css">
