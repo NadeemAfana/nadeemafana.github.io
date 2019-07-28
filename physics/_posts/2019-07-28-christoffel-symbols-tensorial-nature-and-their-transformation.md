@@ -180,17 +180,10 @@ The answer is yes, in a little complicated way:
 Knowing that
 
 $$
-\theta(x,y) = \mathrm{arctan}\left(\frac{y}{x}\right)
-$$
-
-$$
-r(x,y) = \sqrt{x^2 + y^2}
-$$
-$$
-x(r,\theta) = r \mathrm{cos}(\theta),
-$$
-$$
-y(r, \theta) = r \mathrm{sin}(\theta)
+\theta(x,y) = \mathrm{arctan}\left(\frac{y}{x}\right) \\
+r(x,y) = \sqrt{x^2 + y^2} \\
+x(r,\theta) = r \mathrm{cos}(\theta) \\
+y(r, \theta) = r \mathrm{sin}(\theta) \\
 $$
 
 Using equation $\ref{5}$
