@@ -8,6 +8,10 @@ hidden: true
 The Christoffel symbols, $\Gamma ^{\mu}_{\nu \sigma}$, are in fact the components of the connection (ie $\nabla$)
 
 $$
+\require{cancel}
+$$
+
+$$
 \begin{equation}
 \nabla _{\sigma}\mathrm {e} _{\nu} = \Gamma^{\mu}_{\nu \sigma} \mathrm{e}_ {\mu}
 \label{1}
