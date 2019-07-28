@@ -39,6 +39,7 @@ $$
 $$
 
 Both equations are equal, so
+
 $$
 \Gamma^{\mu'}_{\nu' \sigma'} \Lambda^{\mu}{}_{\mu'} \mathrm{e} _{\mu} = \Lambda^{\nu}{}_{\nu'} \Lambda^{\sigma}{}_{\sigma'} \Gamma^{\mu}_{\nu \sigma} \mathrm{e} _{\mu} + \Lambda^{\sigma}{}_{\sigma'}  \mathrm{e}_{\sigma} (\Lambda^{\mu}{}_{\nu'}) \mathrm{e}_{\mu}
 $$
