@@ -132,8 +132,9 @@ $$
 
 Neither one of the terms on the right-hand side above transforms likes the components of a tensor, but their sum does:
 
+Expanding equation $\ref{5}$,
+
 $$
-Expanding equation $\ref{5}$, 
 \begin{align*}
 \nabla_{\sigma'}V^{\mu'}  =&  \frac{\partial x^\sigma}{\partial x^{\sigma'}} \frac{\partial}{\partial x^{\sigma}} \left( \frac{\partial x^{\mu'}}{\partial x^{\mu}} V^\mu \right) + \Gamma^{\mu'}_{ {\nu'} {\sigma'} } \frac{\partial x^{\nu'}}{\partial x^\nu} V^{\nu} \\
 =& \frac{\partial x^\sigma}{\partial x^{\sigma'}} \frac{\partial^{2} x^{\mu'}}{\partial x^\sigma \partial x^\mu} V^\mu + \frac{\partial x^\sigma}{\partial x^{\sigma'}} \frac{\partial x^{\mu'}}{\partial x^\mu} \frac{\partial}{\partial x^\sigma} V^\mu +  \Gamma^{\mu'}_{\nu'\sigma'} \frac{\partial x^{\nu'}}{\partial x^\nu} V^{\nu} 
