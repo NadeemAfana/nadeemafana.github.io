@@ -5,6 +5,9 @@ tags: [christoffel, metric, transformation, curvature, tensor, relativity, physi
 categories: [physics]
 hidden: true
 ---
+This post explains the tensorial nature of the components of the connection, aka the Christoffel symbols, by deriving their general transformation law with examples.
+
+
 The Christoffel symbols, $\Gamma ^{\mu}_{\nu \sigma}$, are in fact the components of the connection (ie $\nabla$)
 
 $$
