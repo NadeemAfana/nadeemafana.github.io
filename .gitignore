@@ -38,3 +38,7 @@ validation-report.json
 
 # Folders to ignore
 node_modules
+
+# Gem files
+Gemfile
+Gemfile.lock
