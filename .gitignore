@@ -42,3 +42,6 @@ node_modules
 # Gem files
 Gemfile
 Gemfile.lock
+
+# Docker
+Dockerfile
