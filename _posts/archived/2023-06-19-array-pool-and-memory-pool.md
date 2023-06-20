@@ -35,8 +35,8 @@ For example,
     }
 ```
 
-The above example borrows an array of `1000` bytes for some logic and then returns them. The data type is not restricted to `byte` as in here; it could be technically anything (eg `char`). 
-The key is to return the buffer after use which can be safely done in a `finally` block should exception occur. 
+The above example borrows an array of at least `1,000` bytes for some logic and then returns it. I say at least because the returned array length may be larger than the requested length. The data type is not restricted to `byte` as in here; it could be technically anything (eg `char`). 
+The key is to return the buffer after use which can be safely done in a `finally` block should an exception occur. 
 Also, the buffer **should not** be used once it has been returned to the pool.
 It seems more convenient to use the buffer for local scope though technically the buffer can be passed around (just be careful when doing so).
 
@@ -82,9 +82,7 @@ public void ArrayPool()
         System.Buffers.ArrayPool<byte>.Shared.Return(buffer);
     }
 }
-```
 
-```c#
 [Benchmark]
 public void MemoryPool()
 {
@@ -178,10 +176,10 @@ The following method decodes text from Base64 to `byte[]`, which is the equivale
 public static SharedObject<byte> FromBase64String(string value, out int bytesWritten)
 {
     using var buffer = Rent<byte>(Encoding.UTF8.GetMaxByteCount(value.Length));
-    int bufferSize = Encoding.UTF8.GetBytes(value, buffer.Memory);
+    int bufferSize = Encoding.UTF8.GetBytes(value, buffer.Value);
     var decodedBuffer = Rent<byte>(Base64.GetMaxDecodedFromUtf8Length(value.Length));
     try {
-        Base64.DecodeFromUtf8(buffer.Memory.AsSpan(0, bufferSize), decodedBuffer.Memory, out int _, out bytesWritten);
+        Base64.DecodeFromUtf8(buffer.Value.AsSpan(0, bufferSize), decodedBuffer.Value, out int _, out bytesWritten);
         if (bytesWritten == 0) {
             throw new InvalidOperationException("Error writing to buffer.");
         }
@@ -218,7 +216,7 @@ public void ConvertFromBase64()
 | ArrayPoolHelperBase64 |   224.5 ns |  2.54 ns |  2.38 ns |  0.11 |      - |         - |        0.00 |
 |     ConvertFromBase64 | 2,003.1 ns | 29.91 ns | 27.98 ns |  1.00 | 0.1640 |    2072 B |        1.00 |
 
-`ArrayPoolHelperBase64` is clearly the winner being 90% faster than `Convert.FromBase64String` and no allocations.
+`ArrayPoolHelperBase64` is clearly the winner being 90% faster than `Convert.FromBase64String` and having no allocations.
 
 If you are using `Convert.FromBase64String` in one of your hot paths, your app will most likely see benefits from using the above method.
 
