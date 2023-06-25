@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why is VSCode Consuming 1 TB of Virtual Memory
+title: Why is VSCode Consuming 1 TB of Virtual Memory?
 tags:
 - memory
 - chrome
@@ -9,8 +9,6 @@ tags:
 ---
 
 <span style="display: none;" class="excerpt">This post explains why Chrome and VSCode consume Terabyte of virtual memory.</span>
-
-## Why is VSCode consuming Terabyte of virtual memory?
 
 It's not a memory leak as one might first suspect.
 The short answer is **Security**.  
