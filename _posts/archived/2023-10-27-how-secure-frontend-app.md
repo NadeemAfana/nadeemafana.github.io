@@ -5,7 +5,7 @@ tags:
 ---
 <span style="display: none;" class="excerpt">This post explains how to properly add authentication and authorization to a frontend app with little code using Upend.</span>
 
-# Introduction
+## Introduction
 In this post, I am going to show you how to add authentication and authorization to a frontend app with little coding. 
 
 Although there are different simple techniques online that mimic auth by showing and hiding html elements depending on whether a user 
@@ -22,7 +22,7 @@ and a place where the app content is secured using a backend server that only au
 <img alt="" src="/images/posts/archived/a775590f-f01d-4074-ba76-ac7bbb70a79d.png">
 
 
-# Setup and Prerequisites
+## Setup and Prerequisites
 I am going to use **Node.js** as the backend server though any other framework suffices. 
 For the frontend, I am going to use plain html. There will be two files: `index.html` and `login.html`. 
 `login.htm` will host the login or signup form for the app whereas `index.html` will contain the main app content after a user authenticates.
@@ -38,7 +38,7 @@ Below is a summary of the user tools and services so far:
 4. `login.html`: Html file that hosts the login or signup form for the app.
 5. [Upend account](https://app.upend.cc): Low-code Auth provider.
 
-# Creating the Frontend App
+## Creating the Frontend App
 The frontend app will be hosted locally using Node.js at url http://localhost:3000. 
 The app will have two pages: one for login/signup with url http://localhost:3000/login and the other for after login/signup http://localhost:3000/.
 
@@ -86,7 +86,7 @@ In each file, paste the following html
         </body>
         </html>
         ```
-        The above install a lightweight Javascript library that does the heavylifting for authentication.
+        The above install a lightweight Javascript library that does the heavy lifting for authentication.
     * From the **Installation** section,  copy the Html code block that says *Copy the following Html code and paste it where you want to show the login and signup forms on your website pages* and paste inside the `login.html` inside the `<body>..</body>` tag such as the following
         ```html
         ...
@@ -96,7 +96,7 @@ In each file, paste the following html
         ```
         The above Html code will render the login/signup form for the user to log in.
 
-# Creating Backend Server 
+## Creating Backend Server 
 Create a new file called `app.js` with the following content:
 ```js
 const http = require('http');
@@ -133,7 +133,7 @@ http://localhost:3000 and http://localhost:3000/login are accessed, respectively
 
 A third url http://localhost:3000/data will be used by the frontend app to display private user information if they are logged in. This endpoint must be protected in two ways:
 * Only logged-in users can access it (Authentication).
-* Users can only access their data and not other users unless they are an admin (Authorization)
+* Users can only access their data and no other users unless they are an admin (Authorization)
 
 
 Run the following command inside the project folder
@@ -304,7 +304,7 @@ server.listen(3000, async () => {
 
 Update the variable `jwk` with your Upend app key which is located under **Security**->**Signing Key**.
 
-Update the bariable `issuer` to match your upend app ID which is found at **Main**->**App ID**.
+Update the variable `issuer` to match your upend app ID which is found at **Main**->**App ID**.
 
 Update one of the emails in the variable `data` to match the Upend user's email that you created. 
 
@@ -315,7 +315,7 @@ This was done by the Upend Js library and hence the value you whitelisted in the
 The endpoints `/index` and `/` are public and require no authorization. 
 `/data` on the other hand will have to authorize the user and return their private data.
  The logic in the `/data` route will extract the access token from the incoming HTTP request header and validate it by calling 
- `jose.jwtVerify`, if the token is not valid or an error occurs, an error of `401 Unauthorizaed` is returned to the user.
+ `jose.jwtVerify`, if the token is not valid or an error occurs, an error of `401 Unauthorized` is returned to the user.
  If the access token is valid, you can look up the user email from the  access token itself.
  Notice how the endpoint does not expect the user to send their email manually in the request and instead pull it from the access token.
  This is important since the user can send a fake email in the request. The takeaway is to trust input from the access token, not from the user.
@@ -350,7 +350,7 @@ Now the frontend should be updated to pull the user private info from the `/data
             const dataEl = document.getElementById('data');
 
             try {
-                const httpResponse = await fetch(`http://localhost:3000/data`);
+                const httpResponse = await fetch(`/data`);
                 if (!httpResponse.ok) {
                     dataEl.innerHTML = `An error occurred: ${httpResponse.status}  ${httpResponse.statusText}`;
                     return;
@@ -400,14 +400,14 @@ If you are not logged in and click on the button, you should see the following e
 <img alt="" src="/images/posts/archived/df8e9df6-f6f3-430c-8514-a62861f689ac.png">
 
 
-# User Roles
+## User Roles
 
 Often, one needs more granularity when it comes to authorizing users. 
-For example, some of you ursers might be admins and those users have more privilige than a regular user. 
+For example, some of you users might be admins and those users have more privilige than a regular user. 
 
 In this case, an admin should be able to read all secrets using the `/data` endpoint. 
 
-To enable roles, go to Upend and click on **Attibutes** tab and add the following `roles` attribute:
+To enable roles, go to Upend and click on **Attributes** tab and add the following `roles` attribute:
 
 <img alt="" src="/images/posts/archived/03a1eedf-4341-4383-a3a7-522db14f007d.png">
 
@@ -460,7 +460,7 @@ Log in again and click on the button and notice that all data has been returned,
 <img alt="" src="/images/posts/archived/90475a8d-3cea-4e7a-95cf-bed1ca227a36.png">
 
 
-# Further Tweaks
+## Further Tweaks
 Notice if you log out or not logged in, you can still access the index.html page at `http://localhost:3000`. 
 
 Although it is safe to display `index.html` for unauthenticated users, it is considered poor user experience. 
