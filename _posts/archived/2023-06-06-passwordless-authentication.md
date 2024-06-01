@@ -1,6 +1,7 @@
 ---
 layout: post
 title: What is Passwordless Authentication? Passwordless Authentication Explained
+excerpt: "This post explains what passwordless authentication is, how it works and its advantages as well as Google passkeys."
 tags:
 - passwordless
 - passkeys

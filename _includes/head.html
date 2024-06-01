@@ -1,38 +1,51 @@
 <head>
-    <meta charset="utf-8" />
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+  <meta charset="utf-8" />
+  <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
-    {% if page.excerpt %}
-    <meta name="description" content="{{ page.excerpt | strip_html }}" />
-    <meta property="og:description" content="{{ page.excerpt | strip_html }}" />
-    {% else %}
-    <meta name="description" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.title }}" />
-    {% endif %}
-    <meta name="author" content="{{ site.author.name }}" />
+  <!-- canonical url start -->
+  {% if paginator.page >= 1 %}
+  <link rel="canonical" href="{{ paginator.posts.first.url | absolute_url  }}" />
+  {% elsif page.path == "physics/index.html" %}
+  {% assign physicsPosts = site.posts | where_exp:"item", "item.categories contains 'physics' " %}
+  <link rel="canonical" href="{{ physicsPosts.first.url | absolute_url  }}" />
+  {% else %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
-    {% if page.title %}
-    <meta property="og:title" content="{{ page.title }}" />
-    <meta property="twitter:title" content="{{ page.title }}" />
-    {% endif %}
 
-    {%if page.tags %}
-    <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}"/>
-    {%endif %}
-    
+  {% endif %}
+  <!-- canonical url end -->
+
+  {% if page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_html }}" />
+  <meta property="og:description" content="{{ page.excerpt | strip_html }}" />
+  {% else %}
+  <meta name="description" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.title }}" />
+  {% endif %}
+  <meta name="author" content="{{ site.author.name }}" />
+
+  {% if page.title %}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="twitter:title" content="{{ page.title }}" />
+  {% endif %}
+
+  {%if page.tags %}
+  <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}" />
+  {%endif %}
+
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
+    {{ site.title }} &middot; {{ site.tagline }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
+    {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
 
   <script>
     if (window.location.host == 'afana.me' && window.location.protocol != "https:") {
-        window.location.protocol = "https";
+      window.location.protocol = "https";
     }
   </script>
 
@@ -62,8 +75,8 @@
       "HTML-CSS": { fonts: ["TeX"] }
     });
   </script>
-  <script type="text/javascript" async  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   {% else %}
   <script type="text/javascript" src="{{ site.baseurl }}/public/js/syntax-highlighter.js"></script>
-  {% endif %}  
+  {% endif %}
 </head>
