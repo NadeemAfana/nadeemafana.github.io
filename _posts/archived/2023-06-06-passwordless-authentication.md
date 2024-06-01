@@ -16,7 +16,7 @@ Passwordless authentication is the process of verifying the identity of a user w
 Passwordless authentication is a safer and easier alternative to passwords.
 Passwordless is a very generic term, and there are many different strategies and implementations that revolve around it which makes it sound overwhelming. 
 
-## Advantages over using Passwords
+## Is passwordless better than password?
 Passwords get breached, shared, reused, and are hard to manage and remember for the end users. 
 Additionally, 63% of data breaches involved leveraging weak, stolen or default passwords.
 Passwords also add conversion friction to your app(s) as users must remember them or store them, and not to mention rotate them regularly.
@@ -69,6 +69,14 @@ The following diagram illuistrates how all the pieces fit together.
 1. The app sends some information including a challenge to the user's browser. 
 1. The browser asks the authenticator to sign the challenge which will trigger some notification on the user's phone device. If the user consents, the browser forwards the signed assertion to the app to validate. 
 1. Once the app validates the signature using the public key, the user is considered authenticated.
+
+## What is the difference between 2FA and passwordless?
+They are two different things. Two-factor authentication (2FA) is an identity and access management security method that requires two forms of identification to access resources and data. These two forms of identification could be passwordless or not.
+
+
+## Is passwordless authentication bad?
+Even with passwordless authentication, some attacks can still happen. For example, one-time passcodes (OTPs) can be intercepted using malware. Also, infected web browsers with viruses can be used to intercept magic links.
+
 
 ## Finally
 Reduce the risk of your exposure by switching to passwordless authentication.
