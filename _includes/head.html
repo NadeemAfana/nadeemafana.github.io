@@ -75,8 +75,8 @@
       "HTML-CSS": { fonts: ["TeX"] }
     });
   </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  {% else %}
-  <script type="text/javascript" src="{{ site.baseurl }}/public/js/syntax-highlighter.js"></script>
+  <script type="text/javascript" async defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  {% elsif page.url contains '.aspx' %}
+  <script type="text/javascript" async defer src="{{ site.baseurl }}/public/js/syntax-highlighter.js"></script>
   {% endif %}
 </head>
