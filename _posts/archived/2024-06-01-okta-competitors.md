@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: /archive/okta-competitors
 title: "Top Okta Competitors and Alternatives in 2024"
 excerpt: "This post covers a comparative study of Okta alternatives and their features focusing on Identity Management."
 tags:

@@ -10,9 +10,6 @@
   {% elsif page.path == "physics/index.html" %}
   {% assign physicsPosts = site.posts | where_exp:"item", "item.categories contains 'physics' " %}
   <link rel="canonical" href="{{ physicsPosts.first.url | absolute_url  }}" />
-  {% else %}
-  <link rel="canonical" href="{{ page.url | absolute_url }}" />
-
 
   {% endif %}
   <!-- canonical url end -->

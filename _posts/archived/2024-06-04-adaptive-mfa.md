@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: /archive/adaptive-mfa
 title: "What is Adaptive Multi-Factor Authentication?"
 excerpt: "Adaptive Multi-Factor Authentication (MFA) is an authentication approach that utilizes business rules to decide which security factors to apply in a given situation. Adaptive Authentication is used to enforce security needs but without adding friction to the user experience. Businesses typically use Adaptive Authentication with Multi-Factor Authentication (MFA) and Single Sign-On (SSO)."
 tags:
