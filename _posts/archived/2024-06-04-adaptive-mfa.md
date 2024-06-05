@@ -10,9 +10,12 @@ Adaptive Multi-Factor Authentication (MFA) is an authentication approach that ut
 
 
 ## Adaptive Multi-Factor Authentication (MFA) Examples
+
+### Remote Employees Example
 For example, consider a remote employee who is working from home and another one that is working from the office. 
 The network of the employee working from home is not as secure as the office's and thus you might want to require 2 authentication factors for employees working remotely such as SMS and password before they can use the componany system. The employee that is working at the office is only required to provide one authentication factor such as their password. This policy of authentication which is based on geo-location (physical location) is an example of adaptive authentication. 
 
+### Adaptive Multi-Factor Authentication (MFA) Rules
 In addition to geo-location (physical location), there are many other factors that businesses consider:
 - Time of day
 - Day of week
@@ -21,4 +24,5 @@ In addition to geo-location (physical location), there are many other factors th
 - IP address
 - Authentication failures count
 
+### Security and User Friction
 The Adaptive Multi-Factor Authentication (MFA) rules can also be applied to re-authentication. For example, after the employee working from home has successfully authenticated using two factors, trust can be established for their home network IP address, so in the future, the employee is only required to provide one authentication factor such as their username and password in order to gain access to the company system. This scenario adds security but without adding friction to the user experience. 
