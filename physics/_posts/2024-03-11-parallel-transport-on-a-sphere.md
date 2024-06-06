@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Parallel Transport on a Sphere
+permalink: /physics/post/parallel-transport-on-sphere
 tags: [christoffel, metric, transformation, curvature, tensor]
 categories: [physics]
 hidden: true
