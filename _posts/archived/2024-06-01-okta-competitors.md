@@ -16,8 +16,9 @@ tags:
 1. [PingIdentity](#pingidentity)
 1. [Keycloak](#keycloak)
 1. [SecureAuth](#secureauth)
-1. [Amazon Cognito](#amazon_cognito)
 1. [Azure AD](#azure_ad)
+1. [FusionAuth](#fusionauth)
+
 
 
 <em>Looking for Okta IAM alternatives?</em> 
@@ -122,13 +123,13 @@ PingIdentity Advantages over Okta:
 ## 7. Keycloak
 <img style="width: 20%; text-align: center;" alt="" src="/images/posts/archived/2646e22e-8bc9-4598-99c9-0a68d775832b.svg">
 
-KeyCloak is open source. It is free to use and highly customizable. KeyCloak offers <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a>, <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a>, and social login.
+Keycloak is open source. It is free to use and highly customizable. Keycloak offers <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a>, <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a>, and social login.
 It has strong community backing with extensive documentation and integrates well with various applications and identity providers.
-However, KeyCloak requires more effort and expertise to set up and configure. The ongoing maintenance and updates can be resource-intensive.
+However, Keycloak requires more effort and expertise to set up and configure. The ongoing maintenance and updates can be resource-intensive.
 It might need significant resources for high performance.
 
 
-KeyCloak Advantages over Okta:
+Keycloak Advantages over Okta:
 - **Cost**: Keycloak is open-source and free, while Okta is a premium service.
 
 
@@ -147,23 +148,9 @@ SecureAuth Advantages over Okta:
 
 
 
-<a id="amazon_cognito"></a>
-
-## 9. Amazon Cognito
-
-Amazon Cognito automatically scales to handle millions of users, and it seamlessly integrates with other AWS services.
-It has a pay-as-you-go pricing which can be more affordable for certain use cases. However, 
-the initial setup can be complex, especially for beginners, and the documentation is not very clear or detailed.
-It also lacks some advanced features found in the other premium solutions.
-
-Amazon Cognito Advantages over Okta:
-- **Cost**: Amazon Cognito offers a pay-as-you-go model which may be more affordable for certain users, while Okta is generally much more expensive.
-
-
-
 <a id="azure_ad"></a>
 
-## 10. Azure AD
+## 9. Azure AD
 
 Azure AD integrates well with Microsoft products and services, and it  can handle large enterprise environments efficiently.
 It offers robust security features including Conditional Access and <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a>. However, 
@@ -174,4 +161,14 @@ Azure AD Advantages over Okta:
 - **Cost**: Azure AD can be more cost-effective for existing Microsoft users.
 - **Integration**: Azure AD is ideal for Microsoft-centric environments, while Okta offers broader third-party integrations.
 
+
+<a id="fusionauth"></a>
+
+## 10. FusionAuth
+FusionAuth is customizable with support for various authentication methods. It includes multi-factor authentication (MFA), single sign-on (SSO), and comprehensive user management. FusionAuth can handle a large number of users, suitable for both small and large organizations.
+However, the initial setup and configuration can be complex, and its administrative UI may not be as intuitive. 
+It also requires a learning curve due to its extensive features and customization options.
+
+FusionAuth Advantages over Okta:
+- **Cost**:  FusionAuth offers a more flexible pricing structure, which may be more affordable for certain users, while Okta tends to be more expensive.
 
