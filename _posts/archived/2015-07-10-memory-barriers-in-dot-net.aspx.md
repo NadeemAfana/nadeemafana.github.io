@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Memory Barriers in .NET
+title: Memory Barriers
+url: /archive/2015/07/10/memory-barriers-in-dot-net.aspx
 redirect_from:
 - "/post/memory-barriers-in-dot-net.aspx.html"
 tags: [memory barrier, fence, intel, intel64, amd64, amd, reordering, processor]
 ---
+
 Nonblocking programming can provide performance benefits over locking, but getting it done right is significantly harder and requires careful testing. 
 When it comes to memory barriers, there is all sorts of confusion and misleading information. Because memory barrier can be counterintuitive, using them wrongly is easy, and applying them correctly requires a lot of effort and headache. The benefits memory barriers provide may not be worth it in most high-level applications. However, memory barriers are handy in performance critical software.
 
-<div>
-<a href="https://app.upend.cc" target="_blank"><img alt="" src="/images/posts/archived/upend-ad.svg" style="max-width: 40%;float: right;"></a>
-</div>
+## How memory barriers or fences work?
 
 In the past, a system with a single processor executed concurrent threads using a trick called "timeslicing", where one thread is running and the others are sleeping. This means that all memory accesses done by one thread appeared in an exact order to all the other running threads. This is called a sequential consistency model. Nowadays, multiprocessor systems are very common and concurrent threads are truly running at the same time, so sequential consistency is not guaranteed because:
 
