@@ -113,7 +113,7 @@ Does it integrate with your existing infrastructure? The chosen SSO solution sho
 
 ### Security and Compliance
 
-Choose a solution that adheres to high security standards and complies with industry regulations. Security is paramount when it comes to SSO solutions, as they become a central point of access control for all connected applications. Key security features to look for include [adaptive multi-factor authentication (MFA)]({% post_url 2024-06-04-adaptive-mfa %}), adaptive authentication, and robust encryption protocols. An effective SSO solution should also offer threat detection and response capabilities to identify and mitigate potential security risks. 
+Choose a solution that adheres to high security standards and complies with industry regulations. Security is paramount when it comes to SSO solutions, as they become a central point of access control for all connected applications. Key security features to look for include [adaptive multi-factor authentication (MFA)]({% post_url /archived/2024-06-04-adaptive-mfa %}), adaptive authentication, and robust encryption protocols. An effective SSO solution should also offer threat detection and response capabilities to identify and mitigate potential security risks. 
 
 ### User Experience
 

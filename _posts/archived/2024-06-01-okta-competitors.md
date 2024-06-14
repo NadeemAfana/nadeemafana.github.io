@@ -23,7 +23,7 @@ tags:
 
 <em>Looking for Okta IAM alternatives?</em> 
 
-This post covers the competitors or alternatives to Okta in a comparative study of [Okta alternatives]({% post_url 2024-06-01-okta-competitors %}) and their features focusing on the <a href="https://en.wikipedia.org/wiki/Identity_management" target="blank">IAM</a> umbrella.
+This post covers the competitors or alternatives to Okta in a comparative study of [Okta alternatives]({% post_url /archived/2024-06-01-okta-competitors %}) and their features focusing on the <a href="https://en.wikipedia.org/wiki/Identity_management" target="blank">IAM</a> umbrella.
 
 <a id="okta-disadvantages"></a>
 **Okta** is an <a href="https://en.wikipedia.org/wiki/Identity_management" target="blank">IAM</a> solution. It focuses on organizations complex identity scenarios that satisfy the enterprise requirements and policies. It can be overwhelming for small teams and businesses.
