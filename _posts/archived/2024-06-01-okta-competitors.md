@@ -39,7 +39,7 @@ The biggest disadvantages of Okta include the following:
 
 <a id="upend"></a>
 ## 1. <a href="https://app.upend.cc" target="blank">Upend</a>
-<a href="https://app.upend.cc" target="_blank"><img alt="" src="/images/posts/archived/upend-screenshot.png"></a>
+<a href="https://app.upend.cc" target="_blank"><img alt="Upend screenshot" src="/images/posts/archived/upend-screenshot.png"></a>
 <a href="https://app.upend.cc" target="blank">Upend</a> is an IAM solution for individuals and small to medium enterprises. It is <a href="https://en.wikipedia.org/wiki/Passwordless_authentication" target="blank">passwordless</a> and  focuses on <a href="https://en.wikipedia.org/wiki/Low-code_development_platform"  target="blank">low-code</a> and ease of integration. 
 
 Upend supports both <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a> and <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a> which can be set up easily. It also provides a user portal which your end-users can access to update their info and see their login access history.
@@ -55,7 +55,7 @@ Upend advantages over Okta:
 <a id="azure-b2c"></a>
 ## 2. <a href="https://learn.microsoft.com/en-us/azure/active-directory-b2c/technical-overview" target="blank">Azure Active Directory B2C</a>
 
-<img alt="" src="/images/posts/archived/microsoft-azure-b2c.png">
+<img alt="Azure Active Directory B2C logo" src="/images/posts/archived/microsoft-azure-b2c.png">
 
 Azure AD B2C solution is built on the same technology as Microsoft Entra ID but is a separate service. It allows businesses to build customer facing applications, and then allow anyone to sign up and sign in to those applications with no restrictions on user account. One can customize the HTML, CSS, and JavaScript. 
 
@@ -70,8 +70,6 @@ Azure AD Advantages over Okta:
 
 <a id="amazon-cognito"></a>
 ## 3. <a href="https://docs.aws.amazon.com/cognito" target="blank">Amazon Cognito</a>
-
-<img alt="" src="/images/posts/archived/microsoft-azure-b2c.png">
 
 Amazon Cognito allows you to authenticate and authorize users from the built-in user directory, from your enterprise directory, and from consumer identity providers like Google and Facebook.
 
@@ -98,7 +96,7 @@ Auth0 Advantages over Okta:
 
 <a id="onelogin"></a>
 ## 5. OneLogin
-<img style="width: 20%; text-align: center;" alt="" src="/images/posts/archived/89e60be5-2688-4f1c-ae9f-5052ce430afc.svg">
+<img style="width: 20%; text-align: center;" alt="OneLogin logo" src="/images/posts/archived/89e60be5-2688-4f1c-ae9f-5052ce430afc.svg">
 
 OneLogin offers shared login capabilities, beneficial for team-based access, and it has a reliable customer support and extensive documentation. 
 OneLogin does have limitations though. For example, they have an average API support and limited features. 
@@ -110,7 +108,7 @@ OneLogin Advantages over Okta:
 
 <a id="pingidentity"></a>
 ## 6. PingIdentity
-<img style="width: 20%; text-align: center;" alt="" src="/images/posts/archived/e0c09151-45d5-42ba-ac3b-eaf5c36f940f.svg">
+<img style="width: 20%; text-align: center;" alt="PingIdentity logo" src="/images/posts/archived/e0c09151-45d5-42ba-ac3b-eaf5c36f940f.svg">
 
 PingIdentity excels in complex, large-scale environments. It is ideal for large organizations with complex requirements.
 It has strong integration capabilities with various applications and identity providers. PingIdentity provides advanced security features, including adaptive authentication and <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a>. It is also customizable to fit specific business needs.
@@ -121,7 +119,7 @@ PingIdentity Advantages over Okta:
 
 <a id="keycloak"></a>
 ## 7. Keycloak
-<img style="width: 20%; text-align: center;" alt="" src="/images/posts/archived/2646e22e-8bc9-4598-99c9-0a68d775832b.svg">
+<img style="width: 20%; text-align: center;" alt="Keycloak logo" src="/images/posts/archived/2646e22e-8bc9-4598-99c9-0a68d775832b.svg">
 
 Keycloak is open source. It is free to use and highly customizable. Keycloak offers <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a>, <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a>, and social login.
 It has strong community backing with extensive documentation and integrates well with various applications and identity providers.

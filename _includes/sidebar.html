@@ -1,22 +1,22 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <h1>
+      <p>
         <a href="{{ site.baseurl }}/" class="site-avatar">{{ site.title }}</a>
-      </h1>      
+      </p>
     </div>
 
     <nav class="sidebar-nav">
-    {% if page.url contains '/physics/' %}
+      {% if page.url contains '/physics/' %}
       <a class="sidebar-nav-item{% if page.url == '/physics/' %} active{% endif %}" href="{{ site.baseurl }}/physics">Home</a>
       <a class="sidebar-nav-item{% if page.url == '/physics/archive/' %} active{% endif %}" href="{{ site.baseurl }}/physics/archive">Archives</a>
-     {% else %}
+      {% else %}
       <a class="sidebar-nav-item{% if page.url ==  '/' %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
       <a class="sidebar-nav-item{% if page.url ==  '/archive/' %} active{% endif %}" href="{{ site.baseurl }}/archive">Archives</a>
       <a class="sidebar-nav-item" href="{{ site.baseurl }}/physics">Physics</a>
-     {% endif %}
+      {% endif %}
     </nav>
-     
+
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>

@@ -11,7 +11,7 @@ tags:
 
 <span style="display: none;" class="excerpt">This post explains what passwordless authentication is, how it works and its advantages as well as Google passkeys.</span>
 
-<a href="https://app.upend.cc" target="_blank"><img alt="" src="/images/posts/archived/upend-ad.svg"></a>
+<a href="https://app.upend.cc" target="_blank"><img alt="Upend ad" src="/images/posts/archived/upend-ad.svg"></a>
 
 ## What is Passwordless Authentication?
 Passwordless authentication is the process of verifying the identity of a user without using a password.

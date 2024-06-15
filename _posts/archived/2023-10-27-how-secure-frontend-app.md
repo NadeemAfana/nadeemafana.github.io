@@ -15,11 +15,11 @@ this is merely done to provide a better user-experience. The proper way to achie
 
 At the end of this post, your app will have a form where users can log in or sign up
 
-<img alt="" src="/images/posts/archived/5418a500-eae2-4796-991c-93b201ee743c.png">
+<img alt="signup screen" src="/images/posts/archived/5418a500-eae2-4796-991c-93b201ee743c.png">
 
 and a place where the app content is secured using a backend server that only authenticated users can see
 
-<img alt="" src="/images/posts/archived/a775590f-f01d-4074-ba76-ac7bbb70a79d.png">
+<img alt="authenticated screen" src="/images/posts/archived/a775590f-f01d-4074-ba76-ac7bbb70a79d.png">
 
 
 ## Setup and Prerequisites
@@ -199,7 +199,7 @@ The full `index.html` file now should look like the following:
 
 Save the changes and refresh the your browser page. You should now see the user first and last name welcome message:
 
-<img alt="" src="/images/posts/archived/2514b8b1-916b-4557-b5a7-ae34117c349b.png">
+<img alt="welcome screen" src="/images/posts/archived/2514b8b1-916b-4557-b5a7-ae34117c349b.png">
 
 Now the user has an access token since they are logged in. The next task would be to invoke the endpoint `http://localhost:3000/data`
 and retrieve the user private data. 
@@ -393,11 +393,11 @@ http://localhost:3000/data endpoint and prints the result in the DIV below it.
 
 Save changes and refresh the page. Click on the button and you should see the following
 
-<img alt="" src="/images/posts/archived/8514b8b1-916b-4557-b5a7-ae34117c34cc.png">
+<img alt="logged in screen" src="/images/posts/archived/8514b8b1-916b-4557-b5a7-ae34117c34cc.png">
 
 If you are not logged in and click on the button, you should see the following error:
 
-<img alt="" src="/images/posts/archived/df8e9df6-f6f3-430c-8514-a62861f689ac.png">
+<img alt="unauthorized screen" src="/images/posts/archived/df8e9df6-f6f3-430c-8514-a62861f689ac.png">
 
 
 ## User Roles
@@ -409,7 +409,7 @@ In this case, an admin should be able to read all secrets using the `/data` endp
 
 To enable roles, go to Upend and click on **Attributes** tab and add the following `roles` attribute:
 
-<img alt="" src="/images/posts/archived/03a1eedf-4341-4383-a3a7-522db14f007d.png">
+<img alt="Upend attributes" src="/images/posts/archived/03a1eedf-4341-4383-a3a7-522db14f007d.png">
 
 This will enable "roles" and thus users can be assigned a role.
 
@@ -457,7 +457,7 @@ If you are logged in, log out for the changes to take effect.
 
 Log in again and click on the button and notice that all data has been returned, not just the current user's.
 
-<img alt="" src="/images/posts/archived/90475a8d-3cea-4e7a-95cf-bed1ca227a36.png">
+<img alt="logged in screen" src="/images/posts/archived/90475a8d-3cea-4e7a-95cf-bed1ca227a36.png">
 
 
 ## Further Tweaks

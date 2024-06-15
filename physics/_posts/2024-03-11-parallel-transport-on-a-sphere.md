@@ -49,7 +49,7 @@ $$
 One can choose the initial vector $\mathbf {V}$ to be tangent to $\phi$ at the equator $(\theta = \frac{\pi}{2}, \phi = 0)$
 with components $ V^\theta = 0, V^\phi = a$ where $a \in \mathbb{R}$ is a constant that indicates how many radians the vector stretches along the $\phi$ direction.
 
-<img alt="" src="/images/posts/archived/61761280-5264-4c9b-a7f7-61fd3778a2ca.gif">
+<img alt="tangent vector" src="/images/posts/archived/61761280-5264-4c9b-a7f7-61fd3778a2ca.gif">
 
 All that remains is solving equation $\ref{3}$. The Christoffel symbols can be computed from the metric ($\ref{2}$) as follows:
 
@@ -74,7 +74,7 @@ These are functions in $\phi$ only; $\theta$ is constant in this case.
 The following animation shows a sphere rotating along the z-axis with some vectors being parallel-transported for different values of $\theta$. The initial vectors are blue, and the parallel-transported vectors are green.
 As one can see, in general, after an amount of $\Delta \phi = 2\pi$ radians (ie one rotation), the vector does not coincide with the original one! This is due to the curvature of the sphere. 
 
-<img alt="" src="/images/posts/archived/97f5148d-d4a8-403a-805e-658abcc7d69d.gif">
+<img alt="parallel transport animation" src="/images/posts/archived/97f5148d-d4a8-403a-805e-658abcc7d69d.gif">
 
 It can also be shown that parallel transport preserves the length of the vector. 
 At the equator ($\theta = \frac{\pi}{2}$), the blue vector is not visible because the parallel-transported vector coincides exactly with the original one. 
