@@ -6,13 +6,13 @@ tags:
 - memory
 - pool
 ---
-<span style="display: none;" class="excerpt">This post explains how to use .NET ArrayPool and MemoryPool and their differences.</span>
+<span style="display: none;" class="excerpt">This post explains how to use .NET ArrayPool and MemoryPool and their differences./span>
 
-# Introduction
+## Introduction
 In this post, I am going to explain what `MemoryPool<T>` and `ArrayPool<T>` are, their differences and how to use them.
 I will also introduce a slight variation of `ArrayPool<T>` that provides better maintenance with some real-world examples that you can use in your hot paths in the production environment.
 
-# ArrayPool and MemoryPool
+## ArrayPool and MemoryPool
 Both `MemoryPool<T>` and `ArrayPool<T>` provide reusable instances of memory buffers that you can use and later return when you are done with them. 
 Reusing memory buffers reduces memory pressure on the garbage collector and thus can boost the performance of your app. 
 Make sure to always benchmark and collect performance metrics after any changes to your app.
@@ -108,7 +108,7 @@ BenchmarkDotNet=v0.13.2, OS=Windows 11 (10.0.22621.1848) .NET SDK=7.0.100
 
 As we can see, there is small overhead in using `MemoryPool`. It is 19% slower and has higher memory footprint, but the overall difference is not bad. 
 
-# Alternative
+## Alternative
 As you start using `ArrayPool` you will notice that the manual invocation of the `Return` method can clutter the source code quickly especially if one is using multiple buffers in the same code block. It would be nice if one could use `Dispose` to return the buffer just like `MemoryPool` but without the performance overhead. The following wrapper achieves that:
 
 ```c#
@@ -166,7 +166,7 @@ The following benchmark shows how all three rank together:
 
 As we can see above, `ArrayPoolHelper` is as fast as `ArrayPool` and without any allocation penalties. 
 
-# Examples
+## Examples
 It is common in apps nowadays to use Base64 encoding to transfer binary data as text. 
 Since Base64 is heavy on using byte arrays, we could put the code above to use and see how it performs.
 
