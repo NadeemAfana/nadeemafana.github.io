@@ -42,7 +42,9 @@ The biggest disadvantages of Okta include the following:
 <a href="https://app.upend.cc" target="_blank"><img alt="Upend screenshot" src="/images/posts/archived/upend-screenshot.png"></a>
 <a href="https://app.upend.cc" target="blank">Upend</a> is an IAM solution for individuals and small to medium enterprises. It is <a href="https://en.wikipedia.org/wiki/Passwordless_authentication" target="blank">passwordless</a> and  focuses on <a href="https://en.wikipedia.org/wiki/Low-code_development_platform"  target="blank">low-code</a> and ease of integration. 
 
-Upend supports both <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a> and <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a> which can be set up easily. It also provides a user portal which your end-users can access to update their info and see their login access history.
+Upend supports <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a> which can be set up easily. It also provides a user portal which your end-users can access to update their info and see their login access history.
+
+With Upend, configuring <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a> is easy and can be done in only few clicks. Single Sign-On allows your users to log into one of your apps and then automatically access your other apps without having to manually log in again. This reduces friction and improves the user experience. Upend relies on creating an SSO group which is simply a list of your apps that you want to enable SSO for. An SSO group is created with the list of apps that you want to enable SSO for. Users will only need to log into any one of the apps on the list once per session. One advantage over Okta's SSO is that in Upend SSO also works for social providers such as Google.
 
 Upend advantages over Okta:
 - **Cost**: Upend's cost is a fraction of Okta's. The cost per user is a lot lower as well.
@@ -61,8 +63,9 @@ Azure AD B2C solution is built on the same technology as Microsoft Entra ID but 
 
 While Azure AD B2C is a great solution, it comes with limitations. For example, there is still a learning curve for the initial setup. Also, it is short on flexibility: It is not possible to use a custom email template or SMS for users communication. It does not seem possible to change the user name or enforce a certain format.
 
+
 Azure AD Advantages over Okta:
-- **Cost**: A lot cheaper than Okta. The cost per user is a lower as well.
+- **Cost**: The cost per user is a lower and a lot cheaper than Okta.
 - **Use**: There is some learning curve but still easier to use than Okta.
 
 <em>Azure AD B2C is a great solution if you don't mind compromising on flexibility.</em>
@@ -76,7 +79,7 @@ Amazon Cognito allows you to authenticate and authorize users from the built-in 
 Amazon Cognito comes with limitations as well. For example, customizing the hosted UI is very limited. Also, Amazon Cognito relies on a user pool, which is a Cognito directory where users are stored. You can only set user attributes at the time of creation of the user pool. In case settings need to be changed, one must create another user pool, since there is no way to instantly migrate the users from one to another. Another issue is fine-grained control over features such as controlling the access token lifetime and expiration.
 
 Amazon Cognito Advantages over Okta:
-- **Cost**: A lot cheaper than Okta. The cost per user is a lower as well.
+- **Cost**: Cheaper than Okta. The cost per user is a lower as well.
 
 <em>Amazon Cognito is a good solution if you don't mind compromising on customization and flexibility.</em>
 
