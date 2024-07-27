@@ -3,6 +3,7 @@ layout: post
 permalink: /archive/okta-competitors
 title: "Top Okta Competitors and Alternatives in 2024"
 excerpt: "This post covers a comparative study of Okta alternatives and their features."
+date: 2024-07-24
 tags:
 ---
 
@@ -45,6 +46,13 @@ The biggest disadvantages of Okta include the following:
 Upend supports <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="blank">Multi-Factor Authentication (MFA)</a> which can be set up easily. It also provides a user portal which your end-users can access to update their info and see their login access history.
 
 With Upend, configuring <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="blank">Single Sign-On (SSO)</a> is easy and can be done in only few clicks. Single Sign-On allows your users to log into one of your apps and then automatically access your other apps without having to manually log in again. This reduces friction and improves the user experience. Upend relies on creating an SSO group which is simply a list of your apps that you want to enable SSO for. An SSO group is created with the list of apps that you want to enable SSO for. Users will only need to log into any one of the apps on the list once per session. One advantage over Okta's SSO is that in Upend SSO also works for social providers such as Google.
+
+In Upend, setting up a new app configuration is seamless. A wizard launches that guides you step-by-step to configure your application.
+An app to Upend is the configuration of your app or website that is being secured.  The whole configuration process is simplified and only asks the minimum required questions. After the configuration wizard completes, you can copy the resultant snippet html markup code and paste that into your web app html pages.
+
+Users in Upend are pooled so that they can be shared across your apps. Although users are shared across your apps, private app attributes are not shared across apps. For example, the roles for a user in app A are different from app B for that same user. This maintains a balance between flexibility and maintenance. You can store additional information for each user using attributes. Attributes can be public or private. Public is intended for the user to see it and potentially update its value, whereas private means the user cannot see or change its value unless it is explicitly done (such as the roles JWT claim which can be read in the access token, sew below for more). 
+
+Unlike many other alternatives, user names or logins can be changed by the user after the user is created. Username is an attribute of a user that is unique across all your apps. By default, when users sign up, they are prompted to enter their email address and that is used as their username. While this lowers friction and providers a better user experience, some admins require users to manually enter their username. 
 
 Upend advantages over Okta:
 - **Cost**: Upend's cost is a fraction of Okta's. The cost per user is a lot lower as well.
