@@ -1,9 +1,9 @@
 ---
 layout: post
 permalink: /archive/okta-competitors
-title: "Top Okta Competitors and Alternatives in 2024"
+title: "Top Okta Competitors and Alternatives in 2025"
 excerpt: "This post covers a comparative study of Okta alternatives and their features."
-date: 2024-11-23
+date: 2025-01-5
 tags:
 ---
 
